@@ -1,10 +1,39 @@
 <header>
   <div class="container">
-    
+    <div class="flex-wrapper">
+      <ul class="header-list">
+        <li>
+          <svg class="logo" width="156" height="43">
+            <use class="logo-icon" href="./images/icons.svg#COCKTAILS"></use>
+          </svg>
+        </li>
+        <li><a class="header-item" href="./index.html">Home</a></li>
+        <li><a class="header-item" href="./favorite.html">Favorite</a></li>
+      </ul>
+      <form class="search-form" id="search-form">
+        <button class="search-btn" type="submit">
+          <svg class="search" width="156" height="43">
+            <use class="search-icon" href="./images/icons.svg#search"></use>
+          </svg>
+        </button>
+        <input
+          class="input"
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search"
+        />
+      </form>
+      <div class="flex-wrapper theme">
+        <p class="header-txt">Light</p>
+        <div>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <p class="header-txt dark">Dark</p>
+      </div>
+    </div>
   </div>
-  <a href="./index.html">Home</a>
-  <a href="./favorite.html">Favorite</a>
-
 </header>
-
-
