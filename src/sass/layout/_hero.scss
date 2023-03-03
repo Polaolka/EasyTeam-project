@@ -1,0 +1,93 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hiro-title {
+  @include fonts($fw: 600, $fs: 22px, $lh: 1.9, $color: var(--main-text-cl));
+  margin-bottom: 60px;
+
+  @include mq(tablet) {
+    @include fonts($fs: 26px, $lh: 1.62);
+    margin-bottom: 40px;
+  }
+
+  @include mq(desktop) {
+    @include fonts($fs: 52px, $lh: 1.54);
+  }
+}
+
+.search-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  width: 324px;
+}
+
+.search-text {
+  display: none;
+  @include mq(tablet) {
+    display: inline-block;
+    opacity: 0.8;
+    margin-bottom: 40px;
+
+    @include fonts($fw: 500, $fs: 14px, $lh: 2, $color: #000000);
+  }
+}
+
+.search-box {
+  display: none;
+
+  @include mq(tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 25px;
+
+    @include fonts($fw: 700, $fs: 14px, $lh: 1.5, $color: var(--gray-text-cl));
+  }
+}
+
+.hero-img {
+  width: 280px;
+  margin-bottom: 60px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  @include mq(tablet) {
+    width: 336px;
+  }
+
+  @include mq(desktop) {
+    width: 501px;
+  }
+}
+
+.hero-text {
+  letter-spacing: 0.02em;
+  opacity: 0.8;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  @include fonts($fw: 500, $fs: 14px, $lh: 2, $color: #000000);
+
+  @include mq(tablet) {
+    display: none;
+  }
+}
+
+.select-letter {
+  width: 93px;
+  height: 34px;
+  padding: 6px 46px 6px 10px;
+  border: 1px solid var(--main-text-cl);
+  border-radius: 4px;
+}
