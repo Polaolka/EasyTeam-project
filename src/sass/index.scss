@@ -1,2 +1,21 @@
-@import './common';
-@import './example';
+@import './vendors/common';
+@import './vendors/base';
+@import './vendors/container';
+
+// utils styles
+@import './utils/variables';
+@import './utils/reset';
+@import './utils/mixins';
+@import './utils/placeholders';
+
+@import './components/buttons';
+@import './components/card-set';
+
+//  styles
+@import './layout/header';
+@import './layout/hero';
+@import './layout/container';
+@import './layout/footer';
+@import './layout/modal-coctail';
+@import './layout/modal-ing';
+
