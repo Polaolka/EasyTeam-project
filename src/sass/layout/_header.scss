@@ -1,7 +1,9 @@
 .header-list {
+    margin: 0;
+    padding: 0;
     list-style: none;
     display: flex;
-    align-items: baseline;
+    align-items: end;
 }
 .logo {
     margin-right: 43px;
@@ -19,6 +21,7 @@
     height: 18px;
 }
 .flex-wrapper {
+    padding-top: 20px;
     display: flex;
     align-items: center;
 }
