@@ -1,0 +1,177 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+:root {
+  /* Fonts */
+  --main-font: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  /* Footer font */
+  --secondary-font: "Roboto", sans-serif;
+  /* Text colors */
+  --main-text-cl: #FD5103;
+  --white-cl: #ffffff;
+  --secondary-text-cl: rgba(0, 0, 0, 0.6);
+  --modal-text-cl: #5F6775
+  /* btn colors */
+  --default-btn-cl: #e86f54;
+  --hover-btn-cl: #e25b41;
+  --focus-btn-cl: #fa6f54;
+  /* Others */
+  --icon-logo-cl: 00eE0E;
+  --btn-radius: 38px;
+  --anim-fast: 300ms ease;
+  --anim-slow: 600ms ease-in-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: currentColor;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+.page {
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--main-font);
+}
+
+.container {
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  overflow-y: scroll;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 200ms, visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 200ms, visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-coctails {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, 50%);
+  width: 320px;
+  height: 956px;
+  background-color: #fcfcfc;
+  padding: 40px 20px;
+}
+@media screen and (min-width: 768px) {
+  .modal-coctails {
+    padding-right: 28px;
+    padding-bottom: 28px;
+  }
+}
+.ingridients-title {
+  font-family: Roboto;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1.18;
+  color: #202025;
+}
+
+.instraction {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.75;
+  color: --modal-text-cl;
+}
+
+.instraction-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #202025;
+}
+
+.coctails-img {
+  width: 280px;
+  height: 280px;
+  border-radius: 4px;
+}
+@media screen and (min-width: 768px) {
+  .coctails-img {
+    width: 288px;
+    height: 320px;
+  }
+}
+
+.ingridients {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #202025;
+}
+
+.ingridients-list {
+  list-style: none;
+}
+
+.ingridients-link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000917;
+  text-decoration: none;
+}
+
+.ingridients-link:hover,
+.ingridients-link:focus {
+  cursor: pointer;
+}/*# sourceMappingURL=index.css.map */
