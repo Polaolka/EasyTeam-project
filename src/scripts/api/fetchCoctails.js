@@ -31,8 +31,8 @@ function getRandomCoctails(itemsPerPage) {
 }
 
 // Чекаємо виконання всіх промісів з рандомними коктейлями
-function returnAllCards(primises) {
-    return Promise.all(primises)
+function returnAllCards(promises) {
+    return Promise.all(promises)
         .catch(error => console.log(error));
 }
 
