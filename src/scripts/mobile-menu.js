@@ -16,11 +16,11 @@
       const scrollLockMethod = !isMenuOpen
         ? 'disableBodyScroll'
         : 'enableBodyScroll';
-      bodyScrollLock[scrollLockMethod](document.body);
+      // bodyScrollLock[scrollLockMethod](document.body);
     };
   
     menuBtn.addEventListener('click', toggleMenu);
-    menuEl.forEach(link => link.addEventListener('click', toggleMenu));
+    // menuEl.forEach(link => link.addEventListener('click', toggleMenu));
   
     // Закрываем мобильное меню на более широких экранах
     // в случае изменения ориентации устройства.
