@@ -152,6 +152,14 @@
 
 }
 
+.dark .gamburger span {
+  background-color: var(--white-cl);
+  &:after,
+  &:before {
+    background-color: var(--white-cl);
+  }
+}
+
 .gamburger span.js-modal {
   background-color: transparent;
   &:after,
@@ -176,3 +184,11 @@
     display: none;
   }
 }
+.dark .gamburger span.js-modal {
+
+  &:after,
+  &:before {
+    background-color: var(--white-cl);
+  }
+}
+
