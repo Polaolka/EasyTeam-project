@@ -102,3 +102,27 @@
     }
   }
 }
+
+.pagination {
+  &__list {
+  }
+
+  &__item {
+  }
+
+  &__btn {
+    width: 32px;
+    height: 32px;
+    //     --btn-bg-color: #FDFDFD;
+    //  --btn-border-color:#EAEBEA;
+  }
+
+  &__btn-prev {
+  }
+
+  &__icon {
+  }
+
+  &__btn-next {
+  }
+}
