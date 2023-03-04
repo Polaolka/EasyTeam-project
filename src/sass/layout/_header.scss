@@ -1,3 +1,7 @@
+.dark header {
+  background-color: var(--black-text-cl);
+}
+
 .header-list {
   margin: 0;
   padding: 0;
@@ -19,6 +23,12 @@
     @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--dark-bg-cl));
   }
 }
+
+.dark .header-item {
+  @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--white-cl));
+
+}
+
 .search {
   fill: var(--main-text-cl);
   width: 18px;
@@ -58,6 +68,8 @@
 .input {
   border: 1px solid var(--main-text-cl);
   border-radius: 0 var(--b-radius) var(--b-radius) 0;
+  outline: transparent;
+  background-color: transparent;
   &::placeholder {
     padding-left: 5px;
     color: #5f6775;
@@ -65,6 +77,8 @@
   }
 }
 .search-btn {
+  padding-left: 10px;
+  padding-right: 10px;
   border: 1px solid var(--main-text-cl);
   border-radius: var(--b-radius) 0 0 var(--b-radius);
   background-color: transparent;
@@ -73,9 +87,19 @@
 .header-txt {
   @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--main-text-cl));
 }
+
+.dark .header-txt {
+  @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--white-cl));
+}
+
 .header-txt.dark {
   @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--gray-text-cl));
 }
+
+.dark .header-txt.dark {
+  @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--main-text-cl));
+}
+
 .gamburger {
   display: flex;
   justify-content: center;

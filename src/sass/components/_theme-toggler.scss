@@ -11,6 +11,7 @@
   margin: 4px;
   transform: translateY(15%);
   position: relative;
+
 }
 
 .slider
@@ -26,6 +27,15 @@
   border: 3px solid transparent;
   overflow: hidden;
   transition: 0.2s;
+
+
+}
+
+.dark .slider {
+  background-color: var(--main-text-cl);
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--white-cl), 0 0 2px var(--white-cl);
+
 }
 
 .slider:before
@@ -40,10 +50,18 @@
   transition: 0.2s;
 }
 
+.dark .slider:before {
+  background-color: var(--white-cl);
+}
+
 input:checked + .slider:before
 {
   transform: translateX(20px); /*translateX(w-h)*/
   background-color: var(--main-text-cl);
+}
+
+.dark input:checked + .slider:before {
+  background-color: var(--white-cl);
 }
 
 // input:checked + .slider
