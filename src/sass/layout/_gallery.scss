@@ -36,9 +36,12 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
+    margin-bottom: 24px;
 
     @include mq(tablet) {
+      justify-content: space-between;
       gap: 32px;
+      margin-bottom: 32px;
     }
   }
 }
@@ -105,24 +108,86 @@
 
 .pagination {
   &__list {
+    display: flex;
+    justify-content: center;
+    @include mq(tablet) {
+      justify-content: space-between;
+    }
+    @include mq(desktop) {
+      justify-content: space-around;
+    }
+  }
+
+  &__items-wrapper {
+    display: flex;
+    gap: 8px;
+
+    @include mq(tablet) {
+      gap: 14px;
+    }
   }
 
   &__item {
   }
 
   &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 32px;
     height: 32px;
-    //     --btn-bg-color: #FDFDFD;
-    //  --btn-border-color:#EAEBEA;
+    background-color: var(--btn-bg-color);
+    border: 1px solid var(--btn-border-color);
+    border-radius: 4px;
+    @include fonts(
+      $fw: 400,
+      $fs: 14px,
+      $lh: calc(17px / 14px),
+      $color: var(--main-text-cl)
+    );
+    @include mq(tablet) {
+      height: 40px;
+      width: 40px;
+    }
+
+    &--active {
+      background-color: var(--main-text-cl);
+      color: var(--white-cl);
+    }
+    &:disabled .pagination__icon {
+      fill: var(--disabled-btn-cl);
+    }
   }
 
   &__btn-prev {
+    transform: rotate(180deg);
+
+    @include mq(phone-only) {
+      border: none;
+      background-color: transparent;
+      margin-right: 4px;
+    }
+    @include mq(tablet) {
+      width: 60px;
+      height: 40px;
+    }
   }
 
   &__icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--main-text-cl);
   }
 
   &__btn-next {
+    @include mq(phone-only) {
+      border: none;
+      background-color: transparent;
+      margin-left: 4px;
+    }
+    @include mq(tablet) {
+      width: 60px;
+      height: 40px;
+    }
   }
 }

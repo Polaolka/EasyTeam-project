@@ -5,21 +5,33 @@
         <div class="pagination">
             <ul class="pagination__list">
                 <li class="pagination__item">
-                    <button class="pagination__btn pagination__btn-prev">
+                    <button disabled type="button" class="pagination__btn pagination__btn-prev">
                         <svg class="pagination__icon">
                             <use href=" ./images/icons.svg#icon-arrow_right"></use>
                         </svg>
                     </button>
-                    <button class="pagination__btn ">
-                        1
-                    </button>
-                    <button class="pagination__btn ">
-                        1
-                    </button>
-                    <button class="pagination__btn ">
-                        1
-                    </button>
-                    <button class="pagination__btn pagination__btn-next">
+                </li>
+                <div class="pagination__items-wrapper">
+                    <li class="pagination__item">
+                        <button type="button" class="pagination__btn ">
+                            1
+                        </button>
+                    </li>
+                    <li class="pagination__item">
+                        <button type="button" class="pagination__btn pagination__btn--active">
+                            1
+                        </button>
+                    </li>
+                    <li class="pagination__item">
+                        <button type="button" class="pagination__btn ">
+                            1
+                        </button>
+                    </li>
+                </div>
+
+
+                <li class="pagination__item">
+                    <button type="button" class="pagination__btn pagination__btn-next">
                         <svg class="pagination__icon">
                             <use href=" ./images/icons.svg#icon-arrow_right"></use>
                         </svg>
