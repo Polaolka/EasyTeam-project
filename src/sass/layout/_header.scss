@@ -1,57 +1,146 @@
 .header-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    align-items: end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: end;
 }
 .logo {
-    margin-right: 43px;
+  margin-right: 43px;
 }
 .header-item {
+  display: none;
+  @include mq(desktop) {
     text-decoration: none;
     &:first-child {
-        margin-right: 60px;
+      margin-right: 60px;
     }
     @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--dark-bg-cl));
+  }
 }
 .search {
-    fill: var(--main-text-cl);
-    width: 18px;
-    height: 18px;
+  fill: var(--main-text-cl);
+  width: 18px;
+  height: 18px;
 }
 .flex-wrapper {
-    padding-top: 20px;
-    display: flex;
-    align-items: center;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
 }
 .flex-wrapper.theme {
+  display: none;
+
+  @include mq(desktop) {
     display: flex;
     gap: 12px;
+    padding-top: 0;
+  }
 }
 .search-form {
+  display: none;
+  @include mq(tablet) {
+    margin-left: auto;
+    margin-right: 5px;
+    display: flex;
+    width: 288px;
+    height: 40px;
+  }
+  @include mq(desktop) {
     margin-left: auto;
     margin-right: 172px;
     display: flex;
     width: 288px;
     height: 40px;
+  }
 }
 .input {
-    border: 1px solid var(--main-text-cl);
-    border-radius: 0 var(--b-radius) var(--b-radius) 0;
-    &::placeholder {
-        color: #5F6775;
-        opacity: 0.4;
-    }
+  border: 1px solid var(--main-text-cl);
+  border-radius: 0 var(--b-radius) var(--b-radius) 0;
+  &::placeholder {
+    padding-left: 5px;
+    color: #5f6775;
+    opacity: 0.4;
+  }
 }
 .search-btn {
-    border: 1px solid var(--main-text-cl);
-    border-radius: var(--b-radius) 0 0 var(--b-radius);
-    background-color: transparent;
+  border: 1px solid var(--main-text-cl);
+  border-radius: var(--b-radius) 0 0 var(--b-radius);
+  background-color: transparent;
+  margin-right: -1px;
 }
 .header-txt {
-    @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--main-text-cl));
+  @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--main-text-cl));
 }
 .header-txt.dark {
-    @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--gray-text-cl));
+  @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--gray-text-cl));
+}
+.gamburger {
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  height: 16px;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  margin-left: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.gamburger span {
+
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: var(--dark-bg-cl);
+  border-radius: 1px;
+  &:after,
+  &:before {
+    content: '';
+    width: 30px;
+    height: 2px;
+    background-color: var(--dark-bg-cl);
+    border-radius: 1px;
+    position: absolute;
+  }
+  &:after {
+    top: 0;
+    left: 0;
+  }
+  &:before {
+    bottom: 0;
+    left: 0;
+  }
+
+  @include mq(desktop) {
+    display: none;
+  }
+}
+
+.gamburger span.js-modal {
+  background-color: transparent;
+  &:after,
+  &:before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background-color: var(--dark-bg-cl);
+    border-radius: 1px;
+    position: absolute;
+  }
+  &:after {
+    transform: rotate(45deg);
+    top: 5px;
+  }
+  &:before {
+    top: 5px;
+    transform: rotate(-45deg);
+  }
+
+  @include mq(desktop) {
+    display: none;
+  }
 }

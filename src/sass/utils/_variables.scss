@@ -4,20 +4,23 @@
   /* Footer font */
   --secondary-font: 'Roboto', sans-serif;
 
-  --dark-bg-cl: #202025;
-  --light-cl: #FCFCFC;
-
   /* Text colors */
   --main-text-cl: #FD5103;
   --white-cl: #ffffff;
+  --secondary-text-cl: rgba(0, 0, 0, 0.6);
+  --modal-text-cl: #5F6775
+
+  /* Text colors */
+  --main-text-cl: #fd5103;
+  --white-cl: #ffffff;
   --black-text-cl: #202025;
-  --gray-text-cl: #5F6775;
+  --gray-text-cl: #5f6775;
   /* btn colors */
 
-  --default-btn-cl: #FE7031;
+  --default-btn-cl: #fe7031;
 
   /* Others */
-  --b-radius: 4px;;
+  --b-radius: 4px;
 
   --anim-fast: 300ms ease;
   --anim-slow: 600ms ease-in-out;
