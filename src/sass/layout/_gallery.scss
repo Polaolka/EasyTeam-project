@@ -44,6 +44,9 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 280px;
   padding-bottom: 24px;
   border: 1px solid var(--main-text-cl);
