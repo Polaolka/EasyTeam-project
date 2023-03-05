@@ -3,7 +3,7 @@ const galleryEl = document.querySelector('.gallery__wrapper');
 export default class Render {
     constructor() { }
     // Рендеримо галерею
-    renderGalery(data) {
+    renderGallery(data) {
         console.log('data: ', data);
         const galleryItems = data.map(({ strDrinkThumb, strDrink, idDrink }) => {
             return `<div class="card" id="${idDrink}">
