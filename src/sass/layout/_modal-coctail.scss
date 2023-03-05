@@ -28,7 +28,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -30%);
+  transform: translate(-50%, -50%);
 
   max-width: 320px;
   max-height: 956px;
@@ -38,7 +38,10 @@
   @include mq(tablet) {
     max-width: 822px;
     max-height: 598px;
-    padding: 0;
+    padding-right: 28px;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 28px;
     transform: translate(-50%, -40%);
     display: flex;
     flex-wrap: wrap;
@@ -75,12 +78,15 @@
     margin-bottom: 28px;
   }
 }
-
+.instruction-wraper {
+  @include mq(tablet) {
+    order: 3;
+  }
+}
 .instraction {
   @include fonts($fw: 400, $fs: 16px, $lh: 1.75, $color: var(--modal-text-cl));
   margin-bottom: 32px;
   @include mq(tablet) {
-    order: 3;
     margin-left: 28px;
     margin-right: 179px;
   }
@@ -89,7 +95,7 @@
   @include fonts($fw: 600, $fs: 16px, $lh: 1.6, $color: var(--black-text-cl));
   margin-bottom: 20px;
   @include mq(tablet) {
-    order: 2;
+    margin-left: 28px;
   }
 }
 .coctails-img {
@@ -124,6 +130,9 @@
 .ingridients-list {
   list-style: none;
   padding: 0;
+  @include mq(tablet) {
+    order: 2;
+  }
 }
 
 .ingridients-link {
@@ -153,8 +162,7 @@
     cursor: pointer;
   }
   @include mq(tablet) {
-    margin-left: 609px;
-    margin-right: 28px;
+    margin-left: auto;
     order: 4;
   }
 }
