@@ -1,5 +1,5 @@
 const menuDropdownBtn = document.querySelector('.mark-more-mobile');
-const menuDropdownEl = document.querySelector('.dropdown-menu');
+const menuDropdownEl = document.querySelector('.dropdown-menu-mobile');
 menuDropdownBtn.addEventListener('click', handleDropdownClick);
 
 function handleDropdownClick(e) {
