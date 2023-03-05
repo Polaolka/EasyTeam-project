@@ -1,1 +1,1 @@
-import "./scripts/api/fetchCoctails";
+import './scripts/home__gallery';
