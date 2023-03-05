@@ -15,7 +15,6 @@
 }
 .component-name-wraper {
   width: 100%;
-  height: 100%;
   padding: 40px 15px;
   @include mq(tablet) {
     padding: 40px 28px 28px 28px;
@@ -23,6 +22,7 @@
   @include mq(desktop) {
     padding: 40px 33px 20px 28px;
   }
+}
   .componet-descriptio-wraper {
     width: 100%;
     height: 100%;
@@ -108,4 +108,4 @@
       margin-right: auto;
     }
   }
-}
+
