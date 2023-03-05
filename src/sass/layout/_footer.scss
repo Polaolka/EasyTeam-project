@@ -1,0 +1,290 @@
+//=======================================================================
+//===                        Normalization                            ===
+//=======================================================================
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+a {
+  text-decoration: none;
+  margin: 0;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+}
+//=======================================================================
+
+//=======================================================================
+//===                       Перший контейнер                          ===
+//=======================================================================
+
+.footer {
+  border-top: 1px solid var(--main-text-cl);
+  max-width: 1280px;
+}
+
+.footer__container--first {
+  @media screen and (max-width: 1279.98px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px 20px;
+    // padding-top: 60px;
+    // padding-bottom: 60px;
+  }
+}
+
+//=======================================================================
+//===                             Store                               ===
+//=======================================================================
+.store {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+
+  &__header {
+    @media screen and (max-width: 1279.98px) {
+      display: none;
+    }
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 20px;
+      font-size: 22px;
+      color: var(--main-text-cl);
+    }
+  }
+
+  &__location {
+    @media screen and (max-width: 1279.98px) {
+      display: none;
+    }
+  }
+
+  &__location {
+    @media screen and (min-width: 1280px) {
+      font-size: 16px;
+      color: var(--gray-text-cl);
+    }
+  }
+}
+
+//=======================================================================
+//===                            Contacts                             ===
+//=======================================================================
+.contacts {
+  &__header {
+    @media screen and (max-width: 1279.98px) {
+      display: none;
+    }
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 20px;
+      font-size: 22px;
+      color: var(--main-text-cl);
+    }
+  }
+
+  &__list {
+    @media screen and (max-width: 1279.98px) {
+      display: none;
+    }
+  }
+
+  &__item {
+    margin-bottom: 12px;
+  }
+
+  &__info {
+    @media screen and (min-width: 1280px) {
+      font-size: 16px;
+      color: var(--gray-text-cl);
+    }
+  }
+}
+
+//=======================================================================
+//===                           Subscription                          ===
+//=======================================================================
+.subscription {
+  display: flex;
+  flex-direction: column;
+  max-width: 450px;
+
+  &__mailings {
+    color: var(--main-text-cl);
+    
+    @media screen and (max-width: 1279.98px) {
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+  }
+
+  &__input {
+    @media screen and (max-width: 1279.98px) {
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+      border-radius: 4px;
+      font-size: 16px;
+      line-height: 1.25;
+      height: 50px;
+      padding: 0 16px;
+      margin-bottom: 20px;
+      box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+      transition: background-color 950ms cubic-bezier(0.4, 0, 0.2, 1);
+      max-width: 450px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+      border-radius: 4px;
+      font-size: 16px;
+      line-height: 1.25;
+      height: 50px;
+      padding: 0 16px;
+      margin-bottom: 20px;
+      box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+      transition: background-color 950ms cubic-bezier(0.4, 0, 0.2, 1);
+      max-width: 450px;
+    }
+  }
+
+  &__input:focus {
+    background-color: #ffffff;
+  }
+
+  &__input:hover,
+  &__input:focus {
+    border-color: #000;
+  }
+
+  &__text {
+    color: var(--gray-text-cl);
+  }
+
+  &__policy {
+    color: var(--gray-text-cl);
+    border-bottom: 1px solid var(--main-text-cl);
+  }
+}
+
+//=======================================================================
+//===                       Другий контейнер                          ===
+//=======================================================================
+
+.footer__container--second {
+  background-color: var(--main-text-cl);
+  display: flex;
+  align-items: center;
+  padding: 30px 20px;
+
+  @media screen and (max-width: 1279.98px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0;
+  }
+}
+
+
+//=======================================================================
+//===                              Join                               ===
+//=======================================================================
+.join {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (max-width: 1279.98px) {
+    margin-bottom: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    
+  }
+
+  &__text {
+    color: #ffffff;
+    margin-bottom: 14;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.14;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    margin: 0 12px;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    margin: 0;
+  }
+
+  &__link {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+//=======================================================================
+//===                             Button                              ===
+//=======================================================================
+.developers__btn {
+  background-color: #ffffff;
+  color: var(--main-text-cl);
+  width: 200px;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+}

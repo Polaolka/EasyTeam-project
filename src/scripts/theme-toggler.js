@@ -3,7 +3,10 @@ const themeTogglerMobileEl = document.querySelector('.theme-toggler-mobile');
 try {
     if (localStorage.getItem('theme') === 'theme-dark') {
         document.querySelector('html').classList.add('dark');
-        themeTogglerEl.setAttribute('checked', 'checked')
+        themeTogglerEl.setAttribute('checked', 'checked');
+        console.log(themeTogglerEl.hasAttribute('checked'));
+        themeTogglerMobileEl.setAttribute('checked', 'checked');
+        console.log(themeTogglerMobileEl.hasAttribute('checked'));
     }
 } catch (error) {
     console.log(error);

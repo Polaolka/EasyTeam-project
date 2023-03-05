@@ -40,7 +40,7 @@
 }
 
 .header-list-mobile,
-.dropdown-menu {
+.dropdown-menu-mobole {
   margin: 0 5px;
   padding-left: 0;
   list-style: none;
@@ -162,13 +162,19 @@
   padding-right: 10px;
 }
 
-.dropdown-menu {
+.dropdown-menu-mobile {
+  width: 210px;
+  height: 96px;
   margin-top: 20px;
   padding-left: 20px;
+  border: 1px colid var(--main-text-cl);
   pointer-events: auto;
   transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  // &:first-child {
+  //   background-color: var(--main-text-cl);
+  // }
 }
-.dropdown-menu.js-menu-hidden {
+.dropdown-menu-mobile.js-menu-hidden {
   pointer-events: none;
   opacity: 0;
 }
