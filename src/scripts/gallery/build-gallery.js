@@ -1,11 +1,8 @@
 import ApiService from '../api/apiService';
 import Render from '../render/render';
-import { handleOpenCloseModal } from '../render/open-close-modal';
 
 const apiService = new ApiService();
 const render = new Render();
-// const screenWidth = window.innerWidth;
-const galleryEl = document.querySelector('.gallery__wrapper');
 
 export default class Gallery {
   constructor() {
@@ -16,11 +13,10 @@ export default class Gallery {
   }
 
   // Отримуемо кількість елементів на сорінці в галереї в залежності від ширини екрана
-  numberOfItemsPerPage(screenWidth) {
-    console.log('screenWidth: ', screenWidth);
+  numberOfItemsPerPage() {
     if (this.screenWidth < 768) {
       return (this.itemsPerPage = 3);
-    } else if (this.screenWidth >= 768 && screenWidth < 1280) {
+    } else if (this.screenWidth >= 768 && this.screenWidth < 1280) {
       return (this.itemsPerPage = 6);
     } else if (this.screenWidth > 1280) {
       return (this.itemsPerPage = 9);
@@ -49,14 +45,19 @@ export default class Gallery {
     const flatData = data.flatMap(i => i);
     console.log('flatData: ', flatData);
     render.renderGallery(flatData);
-    galleryEl
-      .querySelectorAll('.buttons__btn--learn-more')
-      .forEach(e => e.addEventListener('click', handleOpenCloseModal));
   }
 
   // Будуємо розмітку в залежності від кількості елементів на стр.
   async getDataByName(data) {
     const allNames = await apiService.fetchDataByName(data);
+    for (let i = 0; i < this.itemsPerPage; i += 1) {
+      this.dataItems.push(allNames[i]);
+    }
+    render.renderGallery(this.dataItems);
+  }
+
+  async getDataByLetter(data) {
+    const allNames = await apiService.fetchDataByLetter(data);
     for (let i = 0; i < this.itemsPerPage; i += 1) {
       this.dataItems.push(allNames[i]);
     }

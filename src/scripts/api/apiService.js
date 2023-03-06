@@ -16,16 +16,15 @@ export default class ApiService {
     return response;
   }
   async fetchDataById(id) {
-    const { data } = await axios.get(`${BASE_URL}lookup.php?i=${id}`);
+    const { data } = await axios.get(`${BASE_URL}lookup.php?iid=${id}`);
     const response = data.drinks;
     console.log(response);
     return response;
   }
-
-  async fetchDataByIngr(query) {
-    const { data } = await axios.get(`${BASE_URL}search.php?i=${query}`);
-    const response = data.ingredients[0];
-
+  async fetchDataByLetter(letter) {
+    const { data } = await axios.get(`${BASE_URL}search.php?f=${letter}`);
+    const response = data.drinks;
+    console.log(response);
     return response;
   }
 }

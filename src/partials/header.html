@@ -8,8 +8,22 @@
           </svg>
         </li>
         <li><a class="header-item" href="./index.html">Home</a></li>
-        <li><a class="header-item" href="./favorite.html">Favorite</a></li>
+        <li>
+          <button type="button" class="header-item dropdown-menu-btn">
+            Favorite
+          </button>
+          <ul class="dropdown-menu js-menu-hidden">
+            <li class="li-item-drop first">
+              <a class="header-item-drop first" href="./">Favorite cocktails</a>
+            </li>
+            <li class="li-item-drop last">
+              <a class="header-item-drop last" href="./">Favorite ingredients</a>
+            </li>
+          </ul>
+          <!-- <a class="header-item dropdown-menu" href="./favorite.html">Favorite</a></li> -->
+        </li>
       </ul>
+<!-- 
       <ul class="dropdown-menu js-menu-hidden">
         <li>
           <a class="header-item-drop" href="./">Cocktails</a>
@@ -17,7 +31,7 @@
         <li>
           <a class="header-item-drop" href="./">Ingredients</a>
         </li>
-      </ul>
+      </ul> -->
       <form class="search-form" id="search-form">
         <button class="search-btn" type="submit">
           <svg class="search" width="156" height="43">
@@ -36,7 +50,7 @@
         <p class="header-txt">Light</p>
         <div>
           <label class="switch">
-            <input type="checkbox" class="theme-toggler">
+            <input type="checkbox" class="theme-toggler" />
             <span class="slider"></span>
           </label>
         </div>
@@ -46,7 +60,6 @@
         <span class="gamburger-inner"></span>
       </button>
       <!-- class="js-modal" -->
-
     </div>
   </div>
 </header>
