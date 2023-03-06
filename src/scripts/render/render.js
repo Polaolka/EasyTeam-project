@@ -4,7 +4,6 @@ export default class Render {
     constructor() { }
     // Рендеримо галерею
     renderGallery(data) {
-        console.log('data: ', data);
         const galleryItems = data.map(({ strDrinkThumb, strDrink, idDrink }) => {
             return `<div class="card" id="${idDrink}">
                 <img src="${strDrinkThumb}" alt="${strDrink}" class="card__img">
