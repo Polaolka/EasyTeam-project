@@ -26,7 +26,7 @@ async function handleClickToLetter(e) {
   const cocktailsDataBySelectedLetter = await getData.fetchDataByLetter(
     selectedLetter
   );
-
+  console.log(selectedLetter);
   gallery.numberOfItemsPerPage(screenWidth);
   gallery.getDataByLetter(selectedLetter);
 
