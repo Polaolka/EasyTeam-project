@@ -1,18 +1,23 @@
 const dropdownMenuEl = document.querySelector('.dropdown-menu');
 const menuDropdownBtn = document.querySelector('.dropdown-menu-btn');
 
-
 menuDropdownBtn.addEventListener('click', handleDropdownClick);
-// dropdownMenuEl.addEventListener('click', handleDropdownMenuClick);
-
 
 function handleDropdownClick() {
     dropdownMenuEl.classList.toggle('js-menu-hidden');
+    if(dropdownMenuEl.classList.contains('js-menu-hidden')) {
+        document.removeEventListener('click', handleOverDropdownMenuClick);
+    } else {
+        document.addEventListener('click', handleOverDropdownMenuClick);
+    }
 }
-// function handleDropdownMenuClick(e) {
-//     console.log(e.target);
-//     if (e.target !== dropdownMenuEl) 
-//     //     dropdownMenuEl.removeEventListener("click", handleDropdownMenuClick);
-//        { dropdownMenuEl.classList.toggle('js-menu-hidden');}
-//     }
+function handleOverDropdownMenuClick(e) {
+    if (e.target.closest('.dropdown-menu-btn')) {
+        return;
+    }
+    if (!e.target.closest('.dropdown-menu')) {
+        dropdownMenuEl.classList.toggle('js-menu-hidden');
+        document.removeEventListener('click', handleOverDropdownMenuClick);
+    }
+}
 
