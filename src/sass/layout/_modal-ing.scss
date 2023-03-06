@@ -13,6 +13,20 @@
     height: 557px;
   }
 }
+.close-modal2 {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  padding: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: inherit;
+  border: none;
+}
 .component-name-wraper {
   width: 100%;
   padding: 40px 15px;
