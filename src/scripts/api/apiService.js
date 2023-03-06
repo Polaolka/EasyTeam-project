@@ -21,4 +21,10 @@ export default class ApiService {
     console.log(response);
     return response;
   }
+  async fetchDataByLetter(letter) {
+    const { data } = await axios.get(`${BASE_URL}search.php?f=${letter}`);
+    const response = data.drinks;
+    console.log(response);
+    return response;
+  }
 }

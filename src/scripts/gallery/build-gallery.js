@@ -57,4 +57,12 @@ export default class Gallery {
     }
     render.renderGallery(this.dataItems);
   }
+
+  async getDataByLetter(data) {
+    const allNames = await apiService.fetchDataByLetter(data);
+    for (let i = 0; i < this.itemsPerPage; i += 1) {
+      this.dataItems.push(allNames[i]);
+    }
+    render.renderGallery(this.dataItems);
+  }
 }
