@@ -1,0 +1,62 @@
+.dropdown-menu {
+    width: 210px;
+    height: 96px;
+    position: absolute;
+    top: 70px;
+  
+    border: 1px solid var(--main-text-cl);
+    border-radius: 4px;
+  
+    transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);;
+  }
+  
+  .dark .dropdown-menu {
+    border: 1px solid var(--white-cl);
+  }
+  
+  .li-item-drop {
+    height: 50%;
+    padding: 12px;
+  }
+  
+  .dark .li-item-drop.last {
+    border-top: 1px solid var(--white-cl);
+  }
+  
+  .li-item-drop.last {
+    background-color: var(--main-text-cl);
+  }
+  
+  .header-item-drop {
+    text-decoration: none;
+  
+  }
+  
+  .header-item-drop.first {
+    @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--dark-bg-cl));
+  }
+  
+  .header-item-drop.last {
+  
+    @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--white-cl));
+  
+  }
+  .dark .header-item-drop.first {
+    @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--white-cl));
+  }
+  
+  .dark .header-item-drop.last {
+    @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--black-text-cl));
+  }
+  
+  .header-item.dropdown-menu-btn {
+    background-color: transparent;
+    border: none;
+  
+  }
+  
+  .dropdown-menu.js-menu-hidden {
+    pointer-events: none;
+    opacity: 0;
+  }
+  

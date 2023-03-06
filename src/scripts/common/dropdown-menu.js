@@ -1,8 +1,18 @@
-const menuDropdownBtn = document.querySelector('.mark-more-mobile');
-const menuDropdownEl = document.querySelector('.dropdown-menu-mobile');
-menuDropdownBtn.addEventListener('click', handleDropdownClick);
+const dropdownMenuEl = document.querySelector('.dropdown-menu');
+const menuDropdownBtn = document.querySelector('.dropdown-menu-btn');
 
-function handleDropdownClick(e) {
-    menuDropdownEl.classList.toggle('js-menu-hidden');
-    menuDropdownBtn.classList.toggle('js-rotate');;
-};
+
+menuDropdownBtn.addEventListener('click', handleDropdownClick);
+// dropdownMenuEl.addEventListener('click', handleDropdownMenuClick);
+
+
+function handleDropdownClick() {
+    dropdownMenuEl.classList.toggle('js-menu-hidden');
+}
+// function handleDropdownMenuClick(e) {
+//     console.log(e.target);
+//     if (e.target !== dropdownMenuEl) 
+//     //     dropdownMenuEl.removeEventListener("click", handleDropdownMenuClick);
+//        { dropdownMenuEl.classList.toggle('js-menu-hidden');}
+//     }
+

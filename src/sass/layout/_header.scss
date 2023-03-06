@@ -39,6 +39,7 @@ header {
   height: 18px;
 }
 .flex-wrapper {
+  position: relative;
   padding-top: 20px;
   display: flex;
   align-items: center;
@@ -70,6 +71,7 @@ header {
   }
 }
 .input {
+  padding-left: 10px;
   border: 1px solid var(--main-text-cl);
   border-radius: 0 var(--b-radius) var(--b-radius) 0;
   outline: transparent;
@@ -80,6 +82,11 @@ header {
     opacity: 0.4;
   }
 }
+
+.dark .input {
+  @include fonts($fw: 400, $fs: 18px, $lh: 1.333, $color: var(--white-cl));
+}
+
 .search-btn {
   padding-left: 10px;
   padding-right: 10px;
@@ -197,4 +204,3 @@ header {
     background-color: var(--white-cl);
   }
 }
-
