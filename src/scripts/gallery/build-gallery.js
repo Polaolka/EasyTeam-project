@@ -70,7 +70,7 @@ export default class Gallery {
   // Будуємо розмітку в залежності від кількості елементів на стр.
   async getDataByName(data) {
     const allNames = await apiService.fetchDataByName(data);
-    return data;
+    // return data;
     for (let i = 0; i < this.paginationLimit; i += 1) {
       this.dataItems.push(allNames[i]);
     }
@@ -79,10 +79,9 @@ export default class Gallery {
 
   async getDataByLetter(data) {
     const allNames = await apiService.fetchDataByLetter(data);
-    for (let i = 0; i < this.itemsPerPage; i += 1) {
-      this.dataItems.push(allNames[i]);
-    }
-    render.renderGallery(this.dataItems);
+
+    console.log(allNames);
+    render.renderGallery(allNames);
   }
 
   // Робимо активними\неактивними стрылочки в пагынацыъ в залежносты выд поточноъ сторынки
