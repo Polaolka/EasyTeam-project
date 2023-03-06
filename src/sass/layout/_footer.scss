@@ -65,6 +65,7 @@ img {
   display: flex;
   flex-direction: column;
   width: 300px;
+  margin-bottom: 28px;
 
   &__header {
     @media screen and (max-width: 1279.98px) {
@@ -186,7 +187,7 @@ img {
 
   &__input:hover,
   &__input:focus {
-    border-color: #000;
+    border-color: var(--main-text-cl);
   }
 
   &__text {
@@ -231,7 +232,7 @@ img {
   align-items: center;
 
   @media screen and (max-width: 1279.98px) {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
   @media screen and (min-width: 1280px) {
     
@@ -268,10 +269,8 @@ img {
 
   &__link {
     display: block;
-    width: 20px;
-    height: 20px;
-    background-color: #333;
     color: #fff;
+    fill: #fff;
     text-align: center;
     text-decoration: none;
   }
@@ -280,6 +279,14 @@ img {
 //=======================================================================
 //===                             Button                              ===
 //=======================================================================
+
+.game__btn {
+  @media screen and (max-width: 1279.98px) {
+    margin-bottom: 20px;
+  }
+}
+
+.game__btn,
 .developers__btn {
   background-color: #ffffff;
   color: var(--main-text-cl);
