@@ -3,9 +3,23 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 110px);
   padding: 20px;
   background-color: #fff;
+  transform: translateX(-150%);
+
+  z-index: 9;
+
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .mobile-window {
+  background-color: var(--black-text-cl);
+}
+
+.mobile-window.is-open {
+  transform: translateX(0);
 }
 
 .logo-mobile {
@@ -26,6 +40,7 @@
 }
 
 .header-list-mobile {
+
   margin: 0 5px;
   padding-left: 0;
   list-style: none;
@@ -37,6 +52,9 @@
     width: 148px;
   }
 }
+
+
+
 .theme-toggler-mobile {
   display: flex;
   gap: 12px;
@@ -59,8 +77,18 @@
   display: block;
   margin-bottom: 30px;
   text-decoration: none;
-  @include fonts($fw: 400, $fs: 28px, $lh: 0.9, $color: var(--black-cl));
+  @include fonts(
+    $fw: 400,
+    $fs: 28px,
+    $lh: 0.9,
+    $color: var(--secondary-text-cl)
+  );
 }
+
+.dark .header-item-mobile {
+  @include fonts($fw: 400, $fs: 28px, $lh: 0.9, $color: var(--white-cl));
+}
+
 .mark-more-mobile {
   display: inline-block;
   margin-top: -5px;
@@ -69,6 +97,15 @@
   border: none;
   font-size: 24px;
   transform: rotate(-45deg);
+  color: var(--black-text-cl);
+}
+.mark-more-mobile.js-rotate {
+  margin-top: 5px;
+  transform: rotate(135deg);
+}
+.dark .mark-more-mobile {
+
+  color: var(--white-cl);
 }
 
 .flex-wrapper-mobile {
@@ -82,6 +119,13 @@
   padding: 20px;
   height: 110px;
   background-color: var(--default-btn-cl);
+  transform: translateX(150%);
+  z-index: 10;
+
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-footer.is-open {
+  transform: translateX(0);
 }
 
 .search-mobile {
@@ -105,6 +149,7 @@
 .input-mobile {
   border: 1px solid var(--main-text-cl);
   border-radius: 0 var(--b-radius) var(--b-radius) 0;
+  background-color: transparent;
   &::placeholder {
     padding-left: 5px;
     color: #5f6775;
@@ -116,4 +161,26 @@
   border-radius: var(--b-radius) 0 0 var(--b-radius);
   background-color: transparent;
   margin-right: -1px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.dropdown-menu-mobile {
+  width: 210px;
+  height: 96px;
+  margin-top: 20px;
+  margin: 0 auto 0;
+  border: 1px solid var(--main-text-cl);
+  border-radius: 4px;
+  pointer-events: auto;
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+.dropdown-menu-mobile.js-menu-hidden {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.dark .dropdown-menu-mobile {
+border: 1px solid var(--white-cl);
 }

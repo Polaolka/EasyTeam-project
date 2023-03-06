@@ -6,74 +6,155 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
 
-  opacity: 1;
+  // opacity: 1;
   overflow-y: scroll;
+  // visibility: visible;
 
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 200ms,
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 200ms,
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  // transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  //   opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 200ms,
+  //   visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-coctails {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(50%, 50%);
+  transform: translate(-50%, -50%);
 
-  width: 320px;
-  height: 956px;
+  min-width: 320px;
+  // min-height: 956px;
   background-color: #fcfcfc;
 
   padding: 40px 20px;
   @include mq(tablet) {
+    min-width: 822px;
+    // min-height: 598px;
     padding-right: 28px;
+    padding-left: 0;
+    padding-top: 0;
     padding-bottom: 28px;
+    transform: translate(-50%, -40%);
+    display: flex;
+    flex-wrap: wrap;
   }
   @include mq(desktop) {
   }
 }
 
-.ingridients-title {
-  font-family: Roboto;
-  @include fonts($fw: 900, $fs: 32px, $lh: 1.18, $color: #202025);
+.close-modal {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  padding: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: inherit;
+  border: none;
 }
 
+.ingridients-title {
+  font-family: Roboto;
+
+  @include fonts($fw: 900, $fs: 32px, $lh: 1.18, $color: var(--black-text-cl));
+
+  margin-bottom: 20px;
+
+  @include mq(tablet) {
+    margin-left: 320px;
+    margin-top: 40px;
+    margin-bottom: 28px;
+  }
+}
+.instruction-wraper {
+  @include mq(tablet) {
+    order: 3;
+  }
+}
 .instraction {
-  @include fonts($fw: 400, $fs: 16px, $lh: 1.75, $color: --modal-text-cl);
+  @include fonts($fw: 400, $fs: 16px, $lh: 1.75, $color: var(--modal-text-cl));
+  margin-bottom: 32px;
+  @include mq(tablet) {
+    margin-left: 28px;
+    margin-right: 179px;
+  }
 }
 .instraction-title {
-  @include fonts($fw: 600, $fs: 16px, $lh: 1.6, $color: #202025);
+  @include fonts($fw: 600, $fs: 16px, $lh: 1.6, $color: var(--black-text-cl));
+  margin-bottom: 20px;
+  @include mq(tablet) {
+    margin-left: 28px;
+  }
 }
 .coctails-img {
   width: 280px;
   height: 280px;
   border-radius: 4px;
+  margin-bottom: 22px;
+  // border: 1px solid tomato;
   @include mq(tablet) {
     width: 288px;
     height: 320px;
+    position: absolute;
+    top: 0;
+    lef: 0;
   }
 }
 .ingridients {
-  @include fonts($fw: 600, $fs: 16px, $lh: 1.6, $color: #202025);
+  @include fonts($fw: 600, $fs: 16px, $lh: 1.6, $color: var(--black-text-cl));
+  margin-bottom: 8px;
+  @include mq(tablet) {
+    margin-left: 320px;
+  }
+}
+.ingridients-per {
+  margin-bottom: 8px;
+  @include fonts($fw: 300, $fs: 14px, $lh: 1.5, $color: var(--black-text-cl));
+  @include mq(tablet) {
+    margin-left: 320px;
+  }
 }
 
 .ingridients-list {
   list-style: none;
+  padding: 0;
+  @include mq(tablet) {
+    order: 2;
+  }
 }
 
 .ingridients-link {
   @include fonts($fw: 400, $fs: 16px, $lh: 1.6, $color: #000917);
   text-decoration: none;
+  @include mq(tablet) {
+    margin-left: 320px;
+  }
 }
 .ingridients-link:hover,
 .ingridients-link:focus {
   cursor: pointer;
+  color: #2c66c4;
+}
+
+.button-add {
+  min-width: 185px;
+  min-height: 48px;
+  padding: 12px 24px;
+  background-color: var(--main-text-cl);
+  border-radius: 4px;
+  @include fonts($fw: 400, $fs: 20px, $lh: 1.2, $color: var(--white-cl));
+  letter-spacing: 0.02em;
+  border: none;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+  @include mq(tablet) {
+    margin-left: auto;
+    order: 4;
+  }
 }

@@ -11,11 +11,15 @@
 @import './components/buttons';
 @import './components/card-set';
 @import './components/theme-toggler';
-
+@import './components/fav-buttons';
+@import './components/theme-dark';
 //  styles
 @import './layout/header';
 @import './layout/modal-mobile';
 @import './layout/hero';
+@import './layout/gallery';
 @import './layout/footer';
 @import './layout/modal-coctail';
 @import './layout/modal-ing';
+@import './layout/favorites-coctails';
+@import './layout/favorites-ing';

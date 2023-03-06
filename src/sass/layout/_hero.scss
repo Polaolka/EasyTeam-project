@@ -1,20 +1,36 @@
+.hero-section {
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dark .hero-section {
+  background-color: var(--black-text-cl);
+}
+
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include mq(tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 60px;
+    padding-top: 60px;
+  }
 }
 
-.hiro-title {
+.hero-title {
   @include fonts($fw: 600, $fs: 22px, $lh: 1.9, $color: var(--main-text-cl));
   margin-bottom: 60px;
 
   @include mq(tablet) {
-    @include fonts($fs: 26px, $lh: 1.62);
+    @include fonts($fw: 600, $fs: 26px, $lh: 1.62);
     margin-bottom: 40px;
+    width: 336px;
   }
 
   @include mq(desktop) {
-    @include fonts($fs: 52px, $lh: 1.54);
+    @include fonts($fw: 600, $fs: 52px, $lh: 1.54);
+    width: 668;
   }
 }
 
@@ -24,6 +40,10 @@
   justify-content: center;
 
   width: 324px;
+
+  @include mq(desktop) {
+    width: 520;
+  }
 }
 
 .search-text {
@@ -33,12 +53,46 @@
     opacity: 0.8;
     margin-bottom: 40px;
 
-    @include fonts($fw: 500, $fs: 14px, $lh: 2, $color: #000000);
+    @include fonts($fw: 500, $fs: 14px, $lh: 2, $color: var(--black-text-cl));
+  }
+
+  @include mq(desktop) {
+    @include fonts(
+      $fw: 500,
+      $fs: 18px,
+      $lh: 1.56,
+      $color: var(--black-text-cl)
+    );
+    width: 668;
+  }
+  transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dark .search-text {
+  @include mq(tablet) {
+    display: inline-block;
+    opacity: 0.8;
+    margin-bottom: 40px;
+
+    @include fonts($fw: 500, $fs: 14px, $lh: 2, $color: var(--light-text-cl));
+  }
+
+  @include mq(desktop) {
+    @include fonts(
+      $fw: 500,
+      $fs: 18px,
+      $lh: 1.56,
+      $color: var(--light-text-cl)
+    );
+    width: 668;
   }
 }
 
 .search-box {
   display: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   @include mq(tablet) {
     display: flex;
@@ -50,17 +104,22 @@
 
     @include fonts($fw: 700, $fs: 14px, $lh: 1.5, $color: var(--gray-text-cl));
   }
+
+  @include mq(desktop) {
+    width: 40px;
+    height: 40px;
+
+    @include fonts($fw: 700, $fs: 24px, $lh: 1.5, $color: var(--gray-text-cl));
+  }
 }
 
 .hero-img {
   width: 280px;
   margin-bottom: 60px;
 
-  margin-left: auto;
-  margin-right: auto;
-
   @include mq(tablet) {
     width: 336px;
+    margin-bottom: 0;
   }
 
   @include mq(desktop) {
@@ -84,10 +143,95 @@
   }
 }
 
-.select-letter {
+.dark .hero-text {
+  color: var(--light-text-cl);
+}
+
+.selectid-letter {
   width: 93px;
   height: 34px;
-  padding: 6px 46px 6px 10px;
+  position: relative;
+  padding-left: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 36px;
+
+  @include fonts($fw: 700, $fs: 16px, $lh: 1.35, $color: var(--main-text-cl));
+
+  border: 1px solid #fd5103;
+  border-radius: 4px;
+  @include mq(tablet) {
+    display: none;
+  }
+}
+
+.open-list-letter {
+  border: none;
+  background-color: inherit;
+  fill: var(--main-text-cl);
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+}
+
+.select-letter {
+  position: absolute;
+  top: 103%;
+
+  left: -1px;
+  // right: 1px;
+  opacity: 1;
+  z-index: 10;
+
+  width: 93px;
+  height: 84px;
+  padding: 4px 10px;
   border: 1px solid var(--main-text-cl);
   border-radius: 4px;
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: white;
+
+  &::-webkit-scrollbar {
+    width: 14px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: 6px solid white; // Изменить цвет при смене темы
+    background-color: var(--gray-text-cl);
+    border-radius: 20px;
+    height: 40px;
+  }
+
+  &.hiden {
+    // position: absolute;
+    // width: 1px;
+    // height: 1px;
+    // margin: -1px;
+    // border: 0;
+    // padding: 0;
+
+    // white-space: nowrap;
+    // clip-path: inset(100%);
+    // clip: rect(0 0 0 0);
+    // overflow: hidden;
+  }
+
+  @include fonts($fw: 700, $fs: 10px, $lh: 1.5, $color: var(--gray-text-cl));
+}
+
+.dark .select-letter {
+  background-color: var(--black-text-cl);
+
+  &::-webkit-scrollbar-thumb {
+    border: 6px solid var(--black-text-cl); // Изменить цвет при смене темы
+  }
 }
