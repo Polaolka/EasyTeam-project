@@ -1,9 +1,8 @@
-const modalCoctails = document.querySelector;
-
+const modalCoctails = document.querySelector('.modal-coctails');
 export function renderModalCoctails(data) {
-  const markupModalCoctail = data
-    .map(data => {
-      return `<h2 class="ingridients-title">${data.strDrink}</h2>
+  const markupModalCoctail = `
+  
+  <h2 class="ingridients-title">${data.strDrink}</h2>
     <div class="instruction-wraper">
       <h3 class="instraction-title">Instraction:</h3>
       <p class="instraction">
@@ -199,8 +198,5 @@ ${
 </ul>
       <button type="button" class="button-add">Add to favorite</button>
       `;
-    })
-    .join('');
-
-  modalCoctails.innerHTML(markupModalCoctail);
+  modalCoctails.innerHTML = markupModalCoctail;
 }
