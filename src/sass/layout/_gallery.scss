@@ -1,9 +1,13 @@
 .gallery {
   padding-bottom: 60px;
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
 
   &__title {
     margin-bottom: 60px;
     text-align: center;
+    transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
 
     @include fonts(
       $fw: 600,
@@ -73,6 +77,7 @@
     margin-top: 48px;
     margin-bottom: 16px;
     text-align: center;
+    transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
     @include fonts(
       $fw: 900,
@@ -139,6 +144,8 @@
     background-color: var(--btn-bg-color);
     border: 1px solid var(--btn-border-color);
     border-radius: 4px;
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
     @include fonts(
       $fw: 400,
       $fs: 14px,
@@ -153,6 +160,8 @@
     &--active {
       background-color: var(--main-text-cl);
       color: var(--white-cl);
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
     }
     &:disabled .pagination__icon {
       fill: var(--disabled-btn-cl);
@@ -191,3 +200,4 @@
     }
   }
 }
+
