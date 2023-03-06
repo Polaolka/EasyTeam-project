@@ -50,6 +50,7 @@ function handleInputEvent(event) {
     galleryByName.numberOfItemsPerPage(screenWidth);
     galleryByName.fetchCoctails(cocktailName);
   }
+  fetchCocktailsForm.reset();
 }
 
 function removeCocktails() {
