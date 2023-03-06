@@ -1,6 +1,6 @@
 import ApiService from '../api/apiService';
 import Render from '../render/render';
-import {handleOpenCloseModal} from '../render/open-close-modal';
+import {handleOpenCloseModal} from '../modals/open-close-modal';
 const galleryEl = document.querySelector('.gallery__wrapper');
 const nextButton = document.querySelector('.pagination__btn-next');
 const prevButton = document.querySelector('.pagination__btn-prev');

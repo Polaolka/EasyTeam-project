@@ -1,7 +1,13 @@
+import icons from "../../images/icons.svg"
+
 const modalIngEl = document.querySelector('.components');
 
 export function renderModalIngr(data) {
-  const markupModalIng = `<div class="component-name-wraper">
+  const markupModalIng = `
+  <svg class="close-modal2" width="32" height="32">
+  <use href="${icons}#icon-close-modal"></use>
+</svg>
+  <div class="component-name-wraper">
     <h2 class="component-name">Campari</h2>
     <h3 class="component-type">Liqueur</h3>
   </div>
