@@ -4,13 +4,11 @@ const galleryEl = document.querySelector('.gallery__wrapper');
 
 
 export default class Render {
-  constructor() {}
-  // Рендеримо галерею
-  renderGallery(data) {
-    console.log('data: ', data);
-    const galleryItems = data
-      .map(({ strDrinkThumb, strDrink, idDrink }) => {
-        return `<div class="card" id="${idDrink}">
+    constructor() { }
+    // Рендеримо галерею
+    renderGallery(data) {
+        const galleryItems = data.map(({ strDrinkThumb, strDrink, idDrink }) => {
+            return `<div class="card" id="${idDrink}">
                 <img src="${strDrinkThumb}" alt="${strDrink}" class="card__img">
                 <h3 class="card__title">${strDrink}</h3>
                 <div class="buttons">
