@@ -3,7 +3,6 @@ import Render from '../render/render';
 
 const apiService = new ApiService();
 const render = new Render();
-// const screenWidth = window.innerWidth;
 
 export default class Gallery {
   constructor() {
@@ -14,11 +13,10 @@ export default class Gallery {
   }
 
   // Отримуемо кількість елементів на сорінці в галереї в залежності від ширини екрана
-  numberOfItemsPerPage(screenWidth) {
-    console.log('screenWidth: ', screenWidth);
+  numberOfItemsPerPage() {
     if (this.screenWidth < 768) {
       return (this.itemsPerPage = 3);
-    } else if (this.screenWidth >= 768 && screenWidth < 1280) {
+    } else if (this.screenWidth >= 768 && this.screenWidth < 1280) {
       return (this.itemsPerPage = 6);
     } else if (this.screenWidth > 1280) {
       return (this.itemsPerPage = 9);

@@ -1,6 +1,4 @@
 import debounce from 'lodash.debounce';
-import ApiService from '../api/apiService';
-import Render from '../render/render';
 import Gallery from "../gallery/build-gallery";
 
 const DEBOUNCE_DELAY = 500;
@@ -8,7 +6,6 @@ const fetchCocktailsForm = document.querySelector('.search-form');
 const inputEl = document.querySelector('.input');
 const galleryEl = document.querySelector('.gallery__wrapper');
 
-const screenWidth = window.innerWidth;
 const galleryByName = new Gallery();
 
 
@@ -19,7 +16,7 @@ function handleInputEvent(event) {
   event.preventDefault();
   removeCocktails();
   if (cocktailName) {
-    galleryByName.numberOfItemsPerPage(screenWidth);
+    galleryByName.numberOfItemsPerPage();
     galleryByName.getDataByName(cocktailName);
   }
   fetchCocktailsForm.reset();
