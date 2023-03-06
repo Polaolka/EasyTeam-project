@@ -1,6 +1,4 @@
 import debounce from 'lodash.debounce';
-import ApiService from '../api/apiService';
-import Render from '../render/render';
 import Gallery from "../gallery/build-gallery";
 
 const DEBOUNCE_DELAY = 500;
