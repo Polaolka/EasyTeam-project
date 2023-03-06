@@ -7,7 +7,7 @@ import './common/theme-toggler';
 import './home/cocktails-by-letter';
 import './common/theme-toggler';
 import './common/theme-toggler-mobile';
-import './modals/open-close-modal';
+import './render/open-close-modal';
 import './common/footer';
 import './common/add-to-favorites';
 

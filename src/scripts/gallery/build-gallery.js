@@ -1,6 +1,6 @@
 import ApiService from '../api/apiService';
 import Render from '../render/render';
-import handleOpenCloseModal from '../modals/open-close-modal';
+import {handleOpenCloseModal} from '../render/open-close-modal';
 const galleryEl = document.querySelector('.gallery__wrapper');
 const nextButton = document.querySelector('.pagination__btn-next');
 const prevButton = document.querySelector('.pagination__btn-prev');
@@ -56,7 +56,7 @@ export default class Gallery {
     galleryEl
       .querySelectorAll('.buttons__btn--learn-more')
       .forEach(e =>
-        e.addEventListener('click', () => console.log('click on "Learn  more"'))
+        e.addEventListener('click', handleOpenCloseModal)
       );
     galleryEl
       .querySelectorAll('.buttons__btn--add-to')
