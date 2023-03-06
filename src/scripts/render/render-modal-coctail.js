@@ -4,7 +4,7 @@ export function renderModalCoctails(data) {
   
   <h2 class="ingridients-title">${data.strDrink}</h2>
     <div class="instruction-wraper">
-      <h3 class="instraction-title">Instraction:</h3>
+      <h3 class="instruction-title">Instruction:</h3>
       <p class="instraction">
      ${data.strInstructions}
       </p>
