@@ -38,7 +38,6 @@ img {
 
 .footer {
   border-top: 1px solid var(--main-text-cl);
-  max-width: 1280px;
 }
 
 .footer__container--first {
@@ -52,7 +51,7 @@ img {
   @media screen and (min-width: 1280px) {
     display: flex;
     justify-content: space-around;
-    padding: 60px 20px;
+    padding: 60px 24px;
     // padding-top: 60px;
     // padding-bottom: 60px;
   }
@@ -208,7 +207,7 @@ img {
   background-color: var(--main-text-cl);
   display: flex;
   align-items: center;
-  padding: 30px 20px;
+  padding: 30px 24px;
 
   @media screen and (max-width: 1279.98px) {
     display: flex;
