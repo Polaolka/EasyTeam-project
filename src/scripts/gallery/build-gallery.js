@@ -70,11 +70,11 @@ export default class Gallery {
   // Будуємо розмітку в залежності від кількості елементів на стр.
   async getDataByName(data) {
     const allNames = await apiService.fetchDataByName(data);
-    // return data;
-    for (let i = 0; i < this.paginationLimit; i += 1) {
-      this.dataItems.push(allNames[i]);
-    }
-    render.renderGallery(this.dataItems);
+    return data;
+    // for (let i = 0; i < this.paginationLimit; i += 1) {
+    //   this.dataItems.push(allNames[i]);
+    // }
+    // render.renderGallery(this.dataItems);
   }
 
   async getDataByLetter(data) {
