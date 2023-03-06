@@ -64,10 +64,11 @@ export default class Gallery {
   // Будуємо розмітку в залежності від кількості елементів на стр.
   async getDataByName(data) {
     const allNames = await apiService.fetchDataByName(data);
-    for (let i = 0; i < this.paginationLimit; i += 1) {
-      this.dataItems.push(allNames[i]);
-    }
-    render.renderGallery(this.dataItems);
+    return data;
+    // for (let i = 0; i < this.paginationLimit; i += 1) {
+    //   this.dataItems.push(allNames[i]);
+    // }
+    // render.renderGallery(this.dataItems);
   }
 
   // Робимо активними\неактивними стрылочки в пагынацыъ в залежносты выд поточноъ сторынки
@@ -136,10 +137,10 @@ export default class Gallery {
 
 const gallery = new Gallery;
 
-(async function () {
-  const data = await apiService.fetchDataByName('a');
-  gallery.setCurrentPage(1, data)
-})() //для тестирования 
+// (async function () {
+//   const data = await apiService.fetchDataByName('a');
+//   gallery.setCurrentPage(1, data)
+// })() //для тестирования 
 
 prevButton.addEventListener("click", () => {
   gallery.setCurrentPage(gallery.currentPage - 1);
