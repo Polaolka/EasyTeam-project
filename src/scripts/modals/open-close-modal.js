@@ -1,5 +1,5 @@
-import ApiService from './api/apiService';
-import { renderModalCoctails } from './render-modal-coctail';
+import ApiService from '../api/apiService';
+import { renderModalCoctails } from '../render/render-modal-coctail';
 
 const backdrop = document.querySelector('.backdrop');
 const modalCoctailsEl = document.querySelector('.modal-coctails');
