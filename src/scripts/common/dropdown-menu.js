@@ -3,11 +3,12 @@ const menuDropdownBtn = document.querySelector('.dropdown-menu-btn');
 
 
 menuDropdownBtn.addEventListener('click', handleDropdownClick);
-// dropdownMenuEl.addEventListener('click', handleDropdownMenuClick);
+// document.addEventListener('click', handleDropdownMenuClick);
 
 
 function handleDropdownClick() {
     dropdownMenuEl.classList.toggle('js-menu-hidden');
+    // window.addEventListener('click', handleDropdownMenuClick);
 }
 // function handleDropdownMenuClick(e) {
 //     console.log(e.target);
@@ -16,3 +17,4 @@ function handleDropdownClick() {
 //        { dropdownMenuEl.classList.toggle('js-menu-hidden');}
 //     }
 
+// classList.contains()
