@@ -8,7 +8,7 @@ const modalIng = document.querySelector('.components');
 const apiIng = new ApiService();
 
 export async function handleOpenModalIngridients(e) {
-  e.prventDefault();
+  e.preventDefault();
   modalCoctailsEl.classList.add('is-hidden');
   const query = e.target.textContent;
   const data = await apiIng.fetchDataByIngr(query);
