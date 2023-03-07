@@ -1,6 +1,4 @@
-import ApiService from '../api/apiService';
-import Render from '../render/render';
-import Gallery from '../gallery/build-gallery';
+import Gallery from '../gallery/gallery';
 
 const el = {
   letterBox: document.querySelector('.search-container'),
@@ -11,6 +9,10 @@ const el = {
   selectidLetterMb: document.querySelector('.selectid-letter-mb'),
 };
 
+el.letterBox.addEventListener('click', handleClickToLetter);
+
+const gallery = new Gallery();
+async function handleClickToLetter(e) {
 const screenWidth = window.innerWidth;
 // const getData = new ApiService();
 // const render = new Render();
@@ -25,6 +27,7 @@ async function handleClickToLetterRender(e) {
     return;
   }
 
+  gallery.clearGallery();
   const activeLetter = document.querySelector('.search-box.is-active');
 
   if (activeLetter) {
@@ -35,6 +38,10 @@ async function handleClickToLetterRender(e) {
 
   const selectedElement = e.target;
   const selectedLetter = e.target.textContent;
+  gallery.numberOfItemsPerPage();
+  const data = await gallery.getDataByLetter(selectedLetter);
+  gallery.setCurrentPage(1, data);
+}
 
   selectedElement.classList.add('is-active');
   console.log(selectedElement);
