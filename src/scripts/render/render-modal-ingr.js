@@ -30,7 +30,7 @@ export function renderModalIngr(data) {
       }</li>
       
     </ul>
-    <button type="button" class="button-components-add">Add to favorite</button>
+    <button type="button" class="button-components-add js-ing-add">Add to favorite</button>
   </div>
   </div>`;
   // console.log(markupModalIng);
