@@ -1,5 +1,5 @@
 import icons from '../../images/icons.svg';
-import { handleClickAddToFavIngr } from '../favorites/favorite-ing'
+import { handleClickAddToFavIngr } from '../favorites/favorite-ing';
 import { checkFavIng } from "../favorites/favorite-ing";
 
 
