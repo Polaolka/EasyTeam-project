@@ -13,3 +13,4 @@ import './common/footer';
 import './common/scroll-too-top';
 
 import './common/add-to-favorites';
+import './favorites/favorite-ing'
