@@ -5,3 +5,4 @@ import './common/mobile-menu';
 import './common/theme-toggler';
 import './modals/open-close-modal';
 import './common/footer';
+import './common/input-validation';
