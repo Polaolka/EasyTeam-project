@@ -54,6 +54,7 @@
 
   background-color: inherit;
   border: none;
+  z-index: 100;
 }
 
 .ingridients-title {
@@ -82,7 +83,7 @@
     margin-right: 179px;
   }
 }
-.instraction-title {
+.instruction-title {
   @include fonts($fw: 600, $fs: 16px, $lh: 1.6, $color: var(--black-text-cl));
   margin-bottom: 20px;
   @include mq(tablet) {

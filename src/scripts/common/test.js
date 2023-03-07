@@ -1,9 +1,9 @@
 import ApiService from '../api/apiService';
 import Render from '../render/render';
-import {handleOpenCloseModal} from '../modals/open-close-modal';
+import handleOpenCloseModal from '../modals/open-close-modal';
 const galleryEl = document.querySelector('.gallery__wrapper');
-const nextButton = document.querySelector('.pagination__btn-next');
-const prevButton = document.querySelector('.pagination__btn-prev');
+const nextButton = document.querySelector(".pagination__btn-next");
+const prevButton = document.querySelector(".pagination__btn-prev");
 const paginationEl = document.querySelector('.pagination__items-wrapper');
 
 const apiService = new ApiService();
@@ -23,11 +23,13 @@ export default class Gallery {
   // Отримуемо кількість елементів на сорінці в галереї в залежності від ширини екрана
   numberOfItemsPerPage(screenWidth) {
     if (screenWidth < 768) {
-      return (this.paginationLimit = 3);
+      return this.paginationLimit = 3;
+
     } else if (screenWidth >= 768 && screenWidth < 1280) {
-      return (this.paginationLimit = 6);
+      return this.paginationLimit = 6;
+
     } else if (screenWidth > 1280) {
-      return (this.paginationLimit = 9);
+      return this.paginationLimit = 9;
     }
   }
 
@@ -53,18 +55,10 @@ export default class Gallery {
     const flatData = data.flatMap(i => i);
     console.log('flatData: ', flatData);
     render.renderGallery(flatData);
-    galleryEl
-      .querySelectorAll('.buttons__btn--learn-more')
-      .forEach(e =>
-        e.addEventListener('click', handleOpenCloseModal)
-      );
-    galleryEl
-      .querySelectorAll('.buttons__btn--add-to')
-      .forEach(e =>
-        e.addEventListener('click', () =>
-          console.log('click on "Add to button"')
-        )
-      );
+    galleryEl.querySelectorAll('.buttons__btn--learn-more')
+      .forEach((e) => e.addEventListener('click', () => console.log('click on "Learn  more"')));
+    galleryEl.querySelectorAll('.buttons__btn--add-to')
+      .forEach((e) => e.addEventListener('click', () => console.log('click on "Add to button"')));
   }
 
   // Будуємо розмітку в залежності від кількості елементів на стр.
@@ -79,33 +73,25 @@ export default class Gallery {
     // render.renderGallery(this.dataItems);
   }
 
-  async getDataByLetter(data) {
-    const allNames = await apiService.fetchDataByLetter(data);
-
-    console.log(allNames);
-    render.renderGallery(allNames);
-  }
-
   // Робимо активними\неактивними стрылочки в пагынацыъ в залежносты выд поточноъ сторынки
   setPaginationArrowsStatus() {
     this.currentPage === 1
-      ? prevButton.setAttribute('disabled', true)
+      ? prevButton.setAttribute("disabled", true)
       : prevButton.removeAttribute('disabled');
 
     this.pageCount === this.currentPage
-      ? nextButton.setAttribute('disabled', true)
+      ? nextButton.setAttribute("disabled", true)
       : nextButton.removeAttribute('disabled');
-  }
+  };
 
-  //Робимо активною кнопку пагынацыъ в залежносты выд поточноъ сторынки
+  //Робимо активною кнопку пагынацыъ в залежносты выд поточноъ сторынки 
   setActivePaginationBtn() {
-    paginationEl.querySelectorAll('.pagination__btn').forEach(el =>
-      el.addEventListener('click', e => {
+    paginationEl.querySelectorAll(".pagination__btn")
+      .forEach((el) => el.addEventListener('click', (e) => {
         const pageNumber = Number(e.target.innerHTML);
         this.paginationBtnHandler(pageNumber);
-      })
-    );
-  }
+      }));
+  };
 
   //Слухач кнопок пагынацыъ
   paginationBtnHandler(pageNumber) {
@@ -118,7 +104,7 @@ export default class Gallery {
   renderPaginationList() {
     paginationEl.innerHTML = '';
     let list = '';
-    for (let i = 1; i < this.pageCount + 1; i += 1) {
+    for (let i = 1; i < (this.pageCount + 1); i += 1) {
       const isActive = i === this.currentPage;
       const className = isActive
         ? 'pagination__btn pagination__btn--active'
@@ -129,7 +115,7 @@ export default class Gallery {
                   </li>`;
       list += item;
     }
-    paginationEl.insertAdjacentHTML('beforeend', list);
+    paginationEl.insertAdjacentHTML('beforeend', list)
     this.setActivePaginationBtn();
   }
 
@@ -148,20 +134,20 @@ export default class Gallery {
     this.renderPaginationList();
     galleryEl.innerHTML = '';
     render.renderGallery(currentDataOnPage);
-  }
+  };
 }
 
-const gallery = new Gallery();
+const gallery = new Gallery;
 
 // (async function () {
 //   const data = await apiService.fetchDataByName('a');
-//   gallery.setCurrentPage(1, data);
-// })(); //для тестирования
+//   gallery.setCurrentPage(1, data)
+// })() //для тестирования 
 
-prevButton.addEventListener('click', () => {
+prevButton.addEventListener("click", () => {
   gallery.setCurrentPage(gallery.currentPage - 1);
 });
 
-nextButton.addEventListener('click', () => {
+nextButton.addEventListener("click", () => {
   gallery.setCurrentPage(gallery.currentPage + 1);
 });
