@@ -149,6 +149,41 @@ export default class Gallery {
     galleryEl.innerHTML = '';
     render.renderGallery(currentDataOnPage);
   }
+  //Рендер кнопок пагынацыъ в залежносты выд кылькосты сторынок
+  renderPaginationList() {
+    paginationEl.innerHTML = '';
+    let list = '';
+    for (let i = 1; i < (this.pageCount + 1); i += 1) {
+      const isActive = i === this.currentPage;
+      const className = isActive
+        ? 'pagination__btn pagination__btn--active'
+        : 'pagination__btn';
+
+      const item = `<li class="pagination__item">
+                    <button type="button" class="${className}">${i}</button>
+                  </li>`;
+      list += item;
+    }
+    paginationEl.insertAdjacentHTML('beforeend', list)
+    this.setActivePaginationBtn();
+  }
+
+  //Встановлюэмо поточну сторынку ы запускаэмо роботу пагынацыъ
+  async setCurrentPage(pageNum, data) {
+    this.currentPage = pageNum;
+    this.paginationLimit = this.numberOfItemsPerPage(screenWidth); // Костыль!!!!!!!!!!!!!!!!!!!!!!
+    const prevRange = (pageNum - 1) * this.paginationLimit;
+    const currRange = pageNum * this.paginationLimit;
+
+    this.setPaginationArrowsStatus();
+
+    this.pageCount = Math.ceil(data.length / this.paginationLimit);
+    const currentDataOnPage = data.slice(prevRange, currRange);
+
+    this.renderPaginationList();
+    galleryEl.innerHTML = '';
+    render.renderGallery(currentDataOnPage);
+  };
 }
 
 const gallery = new Gallery();
