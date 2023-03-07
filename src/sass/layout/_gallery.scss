@@ -160,8 +160,6 @@
     &--active {
       background-color: var(--main-text-cl);
       color: var(--white-cl);
-  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
-
     }
     &:disabled .pagination__icon {
       fill: var(--disabled-btn-cl);
