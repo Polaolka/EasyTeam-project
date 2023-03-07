@@ -1,5 +1,7 @@
 import ApiService from '../api/apiService';
 import Render from '../render/render';
+import { handleOpenCloseModal } from '../modals/open-close-modal';
+import { handleClickAddToFavIngr } from '../favorites/favorite-ing';
 
 const galleryEl = document.querySelector('.gallery__wrapper');
 const nextButton = document.querySelector('.pagination__btn-next');
@@ -182,9 +184,11 @@ galleryEl.addEventListener('click', (e) => {
   const elem = e.target;
 
   if (elem.classList.contains('buttons__btn--learn-more')) {
-    console.log('click on "Learn more"')
+    handleOpenCloseModal(e);
+    // console.log('click on "Learn more"')
   }
   if (elem.classList.contains('buttons__btn--add-to')) {
-    console.log('click on "Add to button"')
+    // console.log('click on "Add to button"')
+    // handleClickAddToFavIngr(e);
   }
 })
