@@ -1,4 +1,3 @@
-import './home/random-home-gallery';
 import './home/cocktails-by-name';
 import './common/dropdown-menu';
 import './common/dropdown-menu-mob';
@@ -8,7 +7,8 @@ import './home/cocktails-by-letter';
 import './common/theme-toggler';
 import './common/theme-toggler-mobile';
 import './modals/open-close-modal';
+import './common/scroll-too-top';
 import './common/footer';
+
+
 import './common/add-to-favorites';
-
-

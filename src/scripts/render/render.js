@@ -2,7 +2,6 @@ import icons from "../../images/icons.svg"
 
 const galleryEl = document.querySelector('.gallery__wrapper');
 
-
 export default class Render {
     constructor() { }
     // Рендеримо галерею
@@ -13,7 +12,7 @@ export default class Render {
                 <h3 class="card__title">${strDrink}</h3>
                 <div class="buttons">
                     <button type="button" class="buttons__btn buttons__btn--learn-more">Learn more</button>
-                    <button type="button" class="buttons__btn buttons__btn--add-to">Add to
+                    <button type="button" class="buttons__btn buttons__btn--add-to" data-id="${idDrink}">Add to
                     <svg class="buttons__icon">
                         <use href="${icons}#heart"></use>
                     </svg>
@@ -23,9 +22,9 @@ export default class Render {
                     </button>
                 </div>
             </div>`;
-      })
-      .join('');
+        })
+            .join('');
 
-    galleryEl.insertAdjacentHTML('beforeend', galleryItems);
-  }
+        galleryEl.insertAdjacentHTML('beforeend', galleryItems);
+    }
 }

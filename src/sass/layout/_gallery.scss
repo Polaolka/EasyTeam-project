@@ -58,6 +58,7 @@
   padding-bottom: 24px;
   border: 1px solid var(--main-text-cl);
   border-radius: 4px;
+  overflow: hidden;
 
   @include mq(tablet) {
     width: 335px;
@@ -160,8 +161,6 @@
     &--active {
       background-color: var(--main-text-cl);
       color: var(--white-cl);
-  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
-
     }
     &:disabled .pagination__icon {
       fill: var(--disabled-btn-cl);
