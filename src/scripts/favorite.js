@@ -12,3 +12,4 @@ import './common/slider_glide';
 import './common/dropdown-menu-mob';
 import './common/theme-toggler-mobile';
 import './favorites/favorite-ing'
+import './render/render-fav-ing'
