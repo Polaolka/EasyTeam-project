@@ -1,8 +1,10 @@
 import ApiService from '../api/apiService';
 import { renderModalIngr } from '../render/render-modal-ingr';
+import { handleClickAddToFavIngr } from "../favorites/favorite-ing";
 
 const backdrop = document.querySelector('.backdrop');
 const modalCoctailsEl = document.querySelector('.modal-coctails');
+const body = document.querySelector('body');
 
 const modalIng = document.querySelector('.components');
 const apiIng = new ApiService();
@@ -23,4 +25,6 @@ export async function handleOpenModalIngridients(e) {
     modalIng.classList.add('is-hidden');
     modalCoctailsEl.classList.remove('is-hidden');
   });
+
+  body.addEventListener('click', handleClickAddToFavIngr);
 }
