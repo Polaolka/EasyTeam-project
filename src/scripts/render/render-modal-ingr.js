@@ -1,6 +1,8 @@
 import icons from '../../images/icons.svg';
 import { handleClickAddToFavIngr } from '../favorites/favorite-ing';
-import { checkFavIng } from '../favorites/favorite-ing';
+import { checkFavIng } from "../favorites/favorite-ing";
+
+// import { checkFavIng } from '../favorites/favorite-ing';
 
 const modalIngEl = document.querySelector('.components');
 const body = document.querySelector('body');
