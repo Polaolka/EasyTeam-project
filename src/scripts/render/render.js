@@ -2,7 +2,6 @@ import icons from "../../images/icons.svg"
 
 const galleryEl = document.querySelector('.gallery__wrapper');
 
-
 export default class Render {
     constructor() { }
     // Рендеримо галерею
@@ -23,9 +22,9 @@ export default class Render {
                     </button>
                 </div>
             </div>`;
-      })
-      .join('');
+        })
+            .join('');
 
-    galleryEl.insertAdjacentHTML('beforeend', galleryItems);
-  }
+        galleryEl.insertAdjacentHTML('beforeend', galleryItems);
+    }
 }
