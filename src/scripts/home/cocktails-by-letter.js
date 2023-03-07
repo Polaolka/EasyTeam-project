@@ -43,12 +43,6 @@ async function handleClickToLetterRender(e) {
   gallery.getDataByLetter(selectedLetter);
 }
 
-function OpenCloseListOfLetter() {
-  console.log(111);
-  el.selectLetterMb.classList.toggle('hiden');
-  el.openListLetter.classList.toggle('open');
-}
-
 async function handleClickToLetterMobileRender(e) {
   if (e.target.classList.value !== 'search-box-mb') {
     return;
@@ -69,7 +63,10 @@ function removeCocktails() {
 }
 
 function OpenCloseListOfLetter() {
-  console.log(111);
+  if (el.selectidLetterMbBox.classList.contains('selectid')) {
+    el.selectidLetterMbBox.classList.remove('selectid');
+  }
+
   el.selectLetterMb.classList.toggle('hiden');
   el.openListLetter.classList.toggle('open');
 }
@@ -78,3 +75,18 @@ function assingContentBySelected(content) {
   el.selectidLetterMb.textContent = content;
   el.selectidLetterMbBox.classList.add('selectid');
 }
+
+// const selectidLetterMbBoxElement = document.querySelector('.selectid-letter-mb-box')
+// const selectidLetterMbElement =document.querySelector('.select-letter-mb');
+// const selectidLetterMbBoxElement = document.querySelectorAll('.search-box');
+
+// if (selectidLetterMbBoxElement.classList.contains('selectid')) {
+//   selectidLetterMbBoxElement.classList.remove('selectid');
+// selectidLetterMbElement.textContent = 'A';
+// }
+
+// selectidLetterMbBoxElement.forEach(el => {
+//   if (el.classList.contains('is-active')) {
+//     el.classList.remove('is-active');
+//   }
+// });
