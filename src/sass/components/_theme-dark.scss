@@ -88,4 +88,35 @@
 
 }
 
+.dark .components{
+  background-color: var(--black-text-cl);
+}
+
+.dark .component-name{
+  color: var(--white-cl);
+}
+
+.dark .component-type{
+  color: var(--white-cl);
+}
+
+.dark .line {
+  visibility: hidden; 
+}
+
+.dark .description-wraper{
+  border: none;
+  color: var(--black-text-cl);
+  background-color: var(--black-text-cl);
+  // visibility: hidden;
+}
+
+.dark .component-description{
+  color: gray
+}
+
+.dark .marker{
+  color: white;
+}
+
 
