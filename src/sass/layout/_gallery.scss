@@ -58,6 +58,7 @@
   padding-bottom: 24px;
   border: 1px solid var(--main-text-cl);
   border-radius: 4px;
+  overflow: hidden;
 
   @include mq(tablet) {
     width: 335px;
