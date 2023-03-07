@@ -4,6 +4,7 @@ import { renderModalCoctails } from '../render/render-modal-coctail';
 const backdrop = document.querySelector('.backdrop');
 const modalCoctailsEl = document.querySelector('.modal-coctails');
 const closeModal = document.querySelector('.close-modal');
+
 const apiId = new ApiService();
 
 async function handleOpenCloseModal(e) {

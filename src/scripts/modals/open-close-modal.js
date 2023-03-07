@@ -5,7 +5,6 @@ import { handleOpenModalIngridients } from '../home/open-close-modalIng';
 const backdrop = document.querySelector('.backdrop');
 const modalCoctailsEl = document.querySelector('.modal-coctails');
 
-
 const apiId = new ApiService();
 
 export async function handleOpenCloseModal(e) {
@@ -19,14 +18,18 @@ export async function handleOpenCloseModal(e) {
   modalCoctailsEl.classList.remove('is-hidden');
 
   modalCoctailsEl
-    .querySelectorAll('.ingridients-item')
-    .forEach(el => el.addEventListener('click', handleOpenModalIngridients));
-
-    const closeModal = document.querySelector('.close-modal');
-    closeModal.addEventListener('click', () => {
-      backdrop.classList.add('is-hidden');
-      modalCoctailsEl.classList.add('is-hidden');
+    .querySelector('.ingridients-list')
+    .addEventListener('click', e => {
+      const itemEl = e.target;
+      if (itemEl.classList.contains('ingridients-link')) {
+        handleOpenModalIngridients(e);
+      }
+      return;
     });
+
+  const closeModal = document.querySelector('.close-modal');
+  closeModal.addEventListener('click', () => {
+    backdrop.classList.add('is-hidden');
+    modalCoctailsEl.classList.add('is-hidden');
+  });
 }
-
-
