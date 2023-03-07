@@ -1,7 +1,6 @@
 import icons from '../../images/icons.svg';
-import { handleClickAddToFavIngr } from '../favorites/favorite-ing'
-import { checkFavIng } from "../favorites/favorite-ing";
-
+import { handleClickAddToFavIngr } from '../favorites/favorite-ing';
+import { checkFavIng } from '../favorites/favorite-ing';
 
 const modalIngEl = document.querySelector('.components');
 const body = document.querySelector('body');
@@ -28,11 +27,15 @@ export function renderModalIngr(data) {
      }
     
     <ul class="component-list">
-      <li class="component-list-item"><span class="marker">✶</span> Type:${data.strType}</li>
-      <li class="component-list-item"><span class="marker">✶</span>  Alcohol by volume:${data.strABV}%</li>
-      <li class="component-list-item"><span class="marker">✶</span> This ingredient is alcoholic:${
-        data.strAlcohol
+      <li class="component-list-item"><span class="marker">✶</span> Type:${
+        data.strType
       }</li>
+      ${
+        data.strABV
+          ? `<li class="component-list-item"><span class="marker">✶</span>  Alcohol by volume:${data.strABV}%</li>
+      <li class="component-list-item"><span class="marker">✶</span> This ingredient is alcoholic:${data.strAlcohol}</li>`
+          : ''
+      }
       
     </ul>
     <button type="button" class="button-components-add ${classIng}">${textContentIng}</button>
@@ -40,6 +43,6 @@ export function renderModalIngr(data) {
   </div>`;
   // console.log(markupModalIng);
   modalIngEl.innerHTML = markupModalIng;
-  
+
   body.addEventListener('click', handleClickAddToFavIngr);
 }
