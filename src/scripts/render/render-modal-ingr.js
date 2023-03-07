@@ -28,9 +28,9 @@ export function renderModalIngr(data) {
      }
     
     <ul class="component-list">
-      <li class="component-list-item">✶ Type:${data.strType}</li>
-      <li class="component-list-item">✶  Alcohol by volume:${data.strABV}%</li>
-      <li class="component-list-item">✶ This ingredient is alcoholic:${
+      <li class="component-list-item"><span class="marker">✶</span> Type:${data.strType}</li>
+      <li class="component-list-item"><span class="marker">✶</span>  Alcohol by volume:${data.strABV}%</li>
+      <li class="component-list-item"><span class="marker">✶</span> This ingredient is alcoholic:${
         data.strAlcohol
       }</li>
       
