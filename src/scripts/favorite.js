@@ -1,4 +1,5 @@
 import './favorites/favorite-coctails';
+import './favorites/cocktails-by-letter'
 import './favorites/favorite-ing';
 import './common/dropdown-menu';
 import './common/mobile-menu';
