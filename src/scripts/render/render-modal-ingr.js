@@ -8,7 +8,7 @@ export function renderModalIngr(data) {
   <use href="${icons}#icon-close-modal"></use>
 </svg>
   <div class="component-name-wraper">
-    <h2 class="component-name" id="${data.id}">${data.strIngredient}</h2>
+    <h2 class="component-name" id="${data.idIngredient}">${data.strIngredient}</h2>
     <h3 class="component-type">${data.strType}</h3>
   </div>
   <div class="line"></div>
