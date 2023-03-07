@@ -1,6 +1,7 @@
 import ApiService from '../api/apiService';
 import { renderModalIngr } from '../render/render-modal-ingr';
-import { handleClickAddToFavIngr } from "../favorites/favorite-ing";
+import { handleClickAddToFavIngr } from '../favorites/favorite-ing';
+import { renderModalWithoutIng } from '../render/render-modal-ingr';
 
 const backdrop = document.querySelector('.backdrop');
 const modalCoctailsEl = document.querySelector('.modal-coctails');
@@ -17,7 +18,13 @@ export async function handleOpenModalIngridients(e) {
   const query = e.target.closest('li').dataset.name;
 
   const data = await apiIng.fetchDataByIngr(query);
-  renderModalIngr(data[0]);
+  if (data[0].strDescription && data[0].strAlcohol) {
+    renderModalIngr(data[0]);
+  } else {
+    modalIng.classList.add('component-not-wrapper');
+    renderModalWithoutIng(data[0]);
+  }
+
   modalIng.classList.remove('is-hidden');
 
   const closeModalIn = document.querySelector('.close-modal2');

@@ -14,6 +14,7 @@ export function renderModalIngr(data) {
 </svg>
   <div class="component-name-wraper">
     <h2 class="component-name">${data.strIngredient}</h2>
+   
     <h3 class="component-type">${data.strType}</h3>
   </div>
   <div class="line"></div>
@@ -45,4 +46,13 @@ export function renderModalIngr(data) {
   modalIngEl.innerHTML = markupModalIng;
 
   body.addEventListener('click', handleClickAddToFavIngr);
+}
+
+export function renderModalWithoutIng(data) {
+  const notFoundInf = `
+  <svg class="close-modal2" width="32" height="32">
+  <use href="${icons}#icon-close-modal"></use>
+</svg>
+<h3 class="component-not">Sorry, we don't find information about ${data.strIngredient}</h3>`;
+  modalIngEl.innerHTML = notFoundInf;
 }
