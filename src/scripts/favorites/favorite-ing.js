@@ -1,10 +1,18 @@
-const addToFavIngBtn = document.querySelector('.');
+const addToFavIngBtn = document.querySelector('.button-components-add');
+const removeFavIngBtn = document.querySelector('.remove-fav-ing')
+const gallery = document.querySelector('.gallery');
 const LS_KEY_FAV_ING = 'Fav-Ingredients';
 // const ingItem = document.querySelector('.');
 
-ingItem.addEventListener('click', handleClickAddToFavIngr);
+gallery.addEventListener('click', handleClickAddToFavIngr);
 
 function handleClickAddToFavIngr(e) {
+  // перевірка кнопки
+  if(e.target = ) {
+
+  }
+
+
   let favIngs = JSON.parse(localStorage.getItem(LS_KEY_FAV_ING));
   if (!favIngs) {
     const lsObj = {
