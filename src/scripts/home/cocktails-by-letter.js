@@ -7,7 +7,7 @@ const el = {
   selectLetterMb: document.querySelector('.select-letter-mb'),
   selectidLetterMbBox: document.querySelector('.selectid-letter-mb-box'),
   selectidLetterMb: document.querySelector('.selectid-letter-mb'),
-  galleryTitle: document.querySelector('.gallerytitle'),
+  galleryTitle: document.querySelector('.gallery__title'),
 };
 
 const gallery = new Gallery();
@@ -41,11 +41,13 @@ async function handleClickToLetter(e) {
   const data = await gallery.getDataByLetter(selectedLetter);
   console.log(el.galleryTitle);
 
-  // if (data === null) {
-  //   el.galleryTitle.classList.toggle('is-hidden');
-  //   el.galleryTitle.innerHTML = notFaundCoctail;
-  // }
-  gallery.setCurrentPage(1, data);
+  if (data === null) {
+    el.galleryTitle.classList.add('is-hidden');
+    el.gallery.innerHTML = notFaundCoctail;
+  } else {
+    gallery.setCurrentPage(1, data);
+    el.galleryTitle.classList.remove('is-hidden');
+  }
 
   selectedElement.classList.add('is-active');
 }
