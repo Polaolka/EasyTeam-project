@@ -12,3 +12,4 @@ import './common/footer';
 
 
 import './common/add-to-favorites';
+import './favorites/favorite-ing'
