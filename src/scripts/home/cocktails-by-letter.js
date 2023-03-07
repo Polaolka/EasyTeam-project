@@ -13,17 +13,35 @@ el.letterBox.addEventListener('click', handleClickToLetter);
 
 const gallery = new Gallery();
 async function handleClickToLetter(e) {
-  if (e.target.classList.value !== 'search-box') {
-    return;
+  const screenWidth = window.innerWidth;
+  // const getData = new ApiService();
+  // const render = new Render();
+  const gallery = new Gallery();
+
+  el.letterBox.addEventListener('click', handleClickToLetterRender);
+  el.openListLetter.addEventListener('click', OpenCloseListOfLetter);
+  el.selectLetterMb.addEventListener('click', handleClickToLetterMobileRender);
+
+  async function handleClickToLetterRender(e) {
+    if (e.target.classList.value !== 'search-box') {
+      return;
+    }
+
+    gallery.clearGallery();
+    const activeLetter = document.querySelector('.search-box.is-active');
+
+    if (activeLetter) {
+      activeLetter.classList.remove('is-active');
+    }
+
+    removeCocktails();
+
+    const selectedElement = e.target;
+    const selectedLetter = e.target.textContent;
+    gallery.numberOfItemsPerPage();
+    const data = await gallery.getDataByLetter(selectedLetter);
+    gallery.setCurrentPage(1, data);
   }
-
-  gallery.clearGallery();
-
-  const selectedLetter = e.target.textContent;
-  gallery.numberOfItemsPerPage();
-  const data = await gallery.getDataByLetter(selectedLetter);
-  gallery.setCurrentPage(1, data);
-}
 
 // import Gallery from '../gallery/gallery';
 

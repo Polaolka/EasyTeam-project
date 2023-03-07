@@ -52,6 +52,7 @@ export default class Gallery {
   clearGallery() {
     galleryEl.innerHTML = ''
   }
+
   // Отримуємо рандомні данні з рандомними коктейлями
   async getRandomData() {
     this.numberOfItemsPerPage();
@@ -60,19 +61,6 @@ export default class Gallery {
     const flatData = data.flatMap(i => i);
     render.renderGallery(flatData);
 
-    //Зробити через делегування
-
-    //   .querySelectorAll('.buttons__btn--learn-more')
-    //   .forEach(e =>
-    //     e.addEventListener('click', handleOpenCloseModal)
-    //   );
-    // galleryEl
-    //   .querySelectorAll('.buttons__btn--add-to')
-    //   .forEach(e =>
-    //     e.addEventListener('click', () =>
-    //       console.log('click on "Add to button"')
-    //     )
-    //   );
   }
 
   // Будуємо розмітку в залежності від кількості елементів на стр.
@@ -97,13 +85,6 @@ export default class Gallery {
       : nextButton.removeAttribute('disabled');
   }
 
-  //Слухач кнопок пагынацыъ
-  paginationBtnHandler(pageNumber) {
-    if (pageNumber !== this.currentPage) {
-      this.setCurrentPage(pageNumber);
-      this.renderPaginationList();
-    }
-  }
   //Додаємо слухача подій на пагінацію
   addPaginationHandler() {
     paginationEL.addEventListener('click', (e) => {
@@ -136,6 +117,7 @@ export default class Gallery {
     })
 
   }
+
   //Рендер кнопок пагынацыъ в залежносты выд кылькосты сторынок
   renderPaginationList() {
     paginationlist.innerHTML = '';
@@ -171,6 +153,7 @@ export default class Gallery {
     const currentDataOnPage = this.currentData.slice(prevRange, currRange);
 
     this.renderPaginationList();
+    paginationEL.classList.remove('is-hidden');
     this.clearGallery();
     render.renderGallery(currentDataOnPage);
   };
