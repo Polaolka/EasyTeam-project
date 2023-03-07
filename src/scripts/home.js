@@ -1,4 +1,3 @@
-import './home/random-home-gallery';
 import './home/cocktails-by-name';
 import './common/dropdown-menu';
 import './common/dropdown-menu-mob';
