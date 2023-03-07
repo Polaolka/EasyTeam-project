@@ -8,9 +8,9 @@ gallery.addEventListener('click', handleClickAddToFavIngr);
 
 function handleClickAddToFavIngr(e) {
   // перевірка кнопки
-  if(e.target = ) {
+  // if(e.target = ) {
 
-  }
+  // }
 
 
   let favIngs = JSON.parse(localStorage.getItem(LS_KEY_FAV_ING));
