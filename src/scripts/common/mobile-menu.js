@@ -3,6 +3,8 @@
     const menuBtn = document.querySelector('.js-open-menu');
     const gamburgerEl = document.querySelector('.gamburger-inner');
     const footerMobileEl = document.querySelector('.mobile-footer');
+    const themeTogglerMobileEl = document.querySelector('.theme-toggler-mobile');
+
   
     const toggleMenu = () => {
       const isMenuOpen =
@@ -12,10 +14,15 @@
       mobileMenu.classList.toggle('is-open');
       gamburgerEl.classList.toggle('js-modal');
       footerMobileEl.classList.toggle('is-open');
-    //   mobileMenu.classList.toggle('hidden');
-      const scrollLockMethod = !isMenuOpen
-        ? 'disableBodyScroll'
-        : 'enableBodyScroll';
+
+
+      if (localStorage.getItem('theme') === 'theme-dark') {
+        themeTogglerMobileEl.setAttribute('checked', 'checked');
+      console.log(themeTogglerMobileEl.hasAttribute('checked'));}
+
+      // const scrollLockMethod = !isMenuOpen
+      //   ? 'disableBodyScroll'
+      //   : 'enableBodyScroll';
       // bodyScrollLock[scrollLockMethod](document.body);
     };
   

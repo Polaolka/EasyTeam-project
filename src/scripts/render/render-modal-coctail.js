@@ -1,11 +1,13 @@
-const modalCoctails = document.querySelector;
-
+import icons from "../../images/icons.svg"
+const modalCoctails = document.querySelector('.modal-coctails');
 export function renderModalCoctails(data) {
-  const markupModalCoctail = data
-    .map(data => {
-      return `<h2 class="ingridients-title">${data.strDrink}</h2>
+  const markupModalCoctail = `
+  <svg class="close-modal" width="32" height="32">
+  <use href="${icons}#icon-close-modal"></use>
+</svg>
+  <h2 class="ingridients-title">${data.strDrink}</h2>
     <div class="instruction-wraper">
-      <h3 class="instraction-title">Instraction:</h3>
+      <h3 class="instruction-title">Instruction:</h3>
       <p class="instraction">
      ${data.strInstructions}
       </p>
@@ -199,8 +201,5 @@ ${
 </ul>
       <button type="button" class="button-add">Add to favorite</button>
       `;
-    })
-    .join('');
-
-  modalCoctails.innerHTML(markupModalCoctail);
+  modalCoctails.innerHTML = markupModalCoctail;
 }

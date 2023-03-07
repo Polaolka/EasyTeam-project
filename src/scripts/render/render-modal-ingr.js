@@ -1,8 +1,13 @@
-<div class="components is-hidden">
-  <!-- <svg class="close-modal2" width="32" height="32">
-    <use href="./images/icons.svg#icon-close-modal"></use>
-  </svg> -->
-  <!-- <div class="component-name-wraper">
+import icons from "../../images/icons.svg"
+
+const modalIngEl = document.querySelector('.components');
+
+export function renderModalIngr(data) {
+  const markupModalIng = `
+  <svg class="close-modal2" width="32" height="32">
+  <use href="${icons}#icon-close-modal"></use>
+</svg>
+  <div class="component-name-wraper">
     <h2 class="component-name">Campari</h2>
     <h3 class="component-type">Liqueur</h3>
   </div>
@@ -23,5 +28,7 @@
       <li class="component-list-item">Alcohol by volume: 20.5–28.5%</li>
     </ul>
     <button type="button" class="button-components-add">Add to favorite</button>
-  </div> -->
-</div>
+  </div>`;
+
+  modalIngEl.innerHTML = markupModalIng;
+}

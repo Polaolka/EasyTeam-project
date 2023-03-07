@@ -1,4 +1,3 @@
 import './scripts/home';
 import './scripts/favorite';
-import './scripts/common';
-
+import './scripts/common/scroll-too-top';

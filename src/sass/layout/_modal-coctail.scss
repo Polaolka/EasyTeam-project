@@ -21,14 +21,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  max-width: 320px;
-  max-height: 956px;
+  min-width: 320px;
+  // min-height: 956px;
   background-color: #fcfcfc;
 
   padding: 40px 20px;
   @include mq(tablet) {
-    max-width: 822px;
-    max-height: 598px;
+    min-width: 822px;
+    // min-height: 598px;
     padding-right: 28px;
     padding-left: 0;
     padding-top: 0;
@@ -54,6 +54,7 @@
 
   background-color: inherit;
   border: none;
+  z-index: 100;
 }
 
 .ingridients-title {
@@ -82,7 +83,7 @@
     margin-right: 179px;
   }
 }
-.instraction-title {
+.instruction-title {
   @include fonts($fw: 600, $fs: 16px, $lh: 1.6, $color: var(--black-text-cl));
   margin-bottom: 20px;
   @include mq(tablet) {
@@ -136,6 +137,7 @@
 .ingridients-link:hover,
 .ingridients-link:focus {
   cursor: pointer;
+  color: #2c66c4;
 }
 
 .button-add {
@@ -153,7 +155,7 @@
     cursor: pointer;
   }
   @include mq(tablet) {
-    margin-right: auto;
+    margin-left: auto;
     order: 4;
   }
 }

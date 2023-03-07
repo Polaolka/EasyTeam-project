@@ -37,13 +37,16 @@
     display: block;
     width: 19px;
     height: 17px;
-    fill: var(--white-cl);
-    stroke: var(--main-text-cl);
+    fill: var(--main-text-cl);
 
     @include mq(tablet) {
       width: 21px;
       height: 19px;
     }
+  }
+
+  &__icon-fill {
+    display: none;
   }
 
   &__btn--learn-more {
