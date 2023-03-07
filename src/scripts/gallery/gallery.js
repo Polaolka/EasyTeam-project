@@ -50,7 +50,7 @@ export default class Gallery {
 
   //Очищуємо вміст галереї
   clearGallery() {
-    galleryEl.innerHTML = ''
+    galleryEl.innerHTML = '';
   }
 
   // Отримуємо рандомні данні з рандомними коктейлями
@@ -60,7 +60,6 @@ export default class Gallery {
     const data = await this.allPromises(this.promises);
     const flatData = data.flatMap(i => i);
     render.renderGallery(flatData);
-
   }
 
   // Будуємо розмітку в залежності від кількості елементів на стр.
@@ -87,7 +86,7 @@ export default class Gallery {
 
   //Додаємо слухача подій на пагінацію
   addPaginationHandler() {
-    paginationEL.addEventListener('click', (e) => {
+    paginationEL.addEventListener('click', e => {
       const elem = e.target;
 
       const isPrevBtn = elem.closest('.pagination__btn-prev');
@@ -95,7 +94,7 @@ export default class Gallery {
       const numBtn = elem.closest('.num-btn');
 
       if (Number(numBtn?.textContent) === this.currentPage) {
-        return
+        return;
       } else {
         numBtn?.textContent && this.setCurrentPage(Number(numBtn.textContent));
       }
@@ -104,25 +103,23 @@ export default class Gallery {
         if (this.currentPage === 1) {
           return;
         }
-        this.setCurrentPage(this.currentPage -= 1)
+        this.setCurrentPage((this.currentPage -= 1));
       }
 
       if (isNextBtn) {
         if (this.pageCount === this.currentPage) {
-          return
+          return;
         }
-        this.setCurrentPage(this.currentPage += 1)
+        this.setCurrentPage((this.currentPage += 1));
       }
-
-    })
-
+    });
   }
 
   //Рендер кнопок пагынацыъ в залежносты выд кылькосты сторынок
   renderPaginationList() {
     paginationlist.innerHTML = '';
     let list = '';
-    for (let i = 1; i < (this.pageCount + 1); i += 1) {
+    for (let i = 1; i < this.pageCount + 1; i += 1) {
       const isActive = i === this.currentPage;
       const className = isActive
         ? 'pagination__btn num-btn pagination__btn--active'
@@ -133,14 +130,14 @@ export default class Gallery {
                   </li>`;
       list += item;
     }
-    paginationlist.insertAdjacentHTML('beforeend', list)
+    paginationlist.insertAdjacentHTML('beforeend', list);
   }
 
   //Встановлюэмо поточну сторынку ы запускаэмо роботу пагынацыъ
   async setCurrentPage(pageNum, data) {
     if (data) {
       this.currentData = data;
-      this.addPaginationHandler()
+      this.addPaginationHandler();
     }
     this.currentPage = pageNum;
 
@@ -156,14 +153,14 @@ export default class Gallery {
     paginationEL.classList.remove('is-hidden');
     this.clearGallery();
     render.renderGallery(currentDataOnPage);
-  };
+  }
 }
 
 const gallery = new Gallery();
 
 gallery.getRandomData();
 
-galleryEl.addEventListener('click', (e) => {
+galleryEl.addEventListener('click', e => {
   const elem = e.target;
 
   if (elem.classList.contains('buttons__btn--learn-more')) {
@@ -174,4 +171,4 @@ galleryEl.addEventListener('click', (e) => {
     // console.log('click on "Add to button"')
     // handleClickAddToFavIngr(e);
   }
-})
+});
