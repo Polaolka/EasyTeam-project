@@ -4,10 +4,12 @@ import { checkFavIng } from "../favorites/favorite-ing";
 const LS_KEY_FAV_ING = 'Fav-Ingredients';
 
 const favIngWrapper = document.querySelector('.fav-ing-wrapper');
-const favIngOpener = document.querySelector('.js-fav-ing-opener');
+// const favIngOpener = document.querySelector('.js-fav-ing-opener');
 const apiService = new ApiService();
-favIngOpener.addEventListener('click', getFavIngData);
+// favIngOpener.addEventListener('click', getFavIngData);
 // const promisesIng = makePromises();
+
+getFavIngData();
 
     // Генеруємо проміси ing.
 function makePromises() {
@@ -28,10 +30,10 @@ async function waitAllPromises(promisesIng) {
 }
 
     //Очищуємо вміст галереї
-  function  clearGallery() {
-    favIngWrapper.innerHTML = '';
-    console.log("done");
-}
+//   function  clearGallery() {
+//     favIngWrapper.innerHTML = '';
+//     console.log("done");
+// }
 
 // fetchDataByIdIngr(query)
 function renderFavIng(data) {
@@ -74,8 +76,8 @@ console.log(data);
 }
 
   // Отримуємо данні з fav ing
-  async function getFavIngData(e) {
-    e.preventDefault();
+  async function getFavIngData() {
+    // e.preventDefault();
     // console.log('+');
     const promises = makePromises();
     // console.log(`pr ${promises}`);
