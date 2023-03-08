@@ -10,6 +10,7 @@ fetchCocktailsForm.addEventListener('submit', handleInputEvent);
 fetchCocktailsFormMobile.addEventListener('submit', handleInputEvent);
 
 async function handleInputEvent(event) {
+  
   let cocktailName = inputEl.value.trim();
   event.preventDefault();
   gallery.clearGallery();

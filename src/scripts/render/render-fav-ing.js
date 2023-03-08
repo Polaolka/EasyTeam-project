@@ -38,7 +38,6 @@ async function waitAllPromises(promisesIng) {
 // }
 
 function renderFavIng(data) {
-  console.log(data);
 
   const galleryItems = data
     .map(elem => {
