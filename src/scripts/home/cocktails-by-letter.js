@@ -1,4 +1,5 @@
 import Gallery from '../gallery/gallery';
+import icons from "../../images/icons.svg"
 
 const el = {
   letterBox: document.querySelector('.search-container'),
@@ -12,9 +13,9 @@ const el = {
 
 const gallery = new Gallery();
 const notFaundCoctail = `<div class="not-found">
-<h2 class="not-foundtitle">Sorry, we didn't find any cocktail for you</h2>
+<h2 class="not-found__title">Sorry, we didn't find any cocktail for you</h2>
 <svg class="not-found__icon">
-  <use href="./images/icons.svg#icon-sorry"></use>
+  <use href="${icons}#icon-sorry"></use>
 </svg>
 </div>`;
 

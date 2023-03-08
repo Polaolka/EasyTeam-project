@@ -143,6 +143,13 @@ export default class Gallery {
       this.currentData = data;
       this.addPaginationHandler();
     }
+    if (data.length <= this.paginationLimit) {
+      this.clearGallery();
+      render.renderGallery(data);
+      paginationEL.classList.add('is-hidden');
+
+      return
+    }
     this.currentPage = pageNum;
 
     const prevRange = (pageNum - 1) * this.paginationLimit;
