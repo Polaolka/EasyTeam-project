@@ -12,24 +12,31 @@
 
 // getFavIngData();
 
-// // Генеруємо проміси ing.
-// function makePromises() {
-//   const favIngs = JSON.parse(localStorage.getItem(LS_KEY_FAV_ING));
-//   console.log(favIngs);
-//   // const promises = favIngs.reduce((acc, id)=> {return acc.push(apiService.fetchDataByIdIngr(id))}, [])
-//   const promises = favIngs.reduce((acc, id) => {
-//     acc.push(apiService.fetchDataByIdIngr(id));
-//     return acc;
-//   }, []);
-//   console.log(promises);
-//   return promises;
+// Генеруємо проміси ing.
+function makePromises() {
+  const favIngs = JSON.parse(localStorage.getItem(LS_KEY_FAV_ING));
+
+  const promises = favIngs.reduce((acc, id) => {
+    acc.push(apiService.fetchDataByIdIngr(id));
+    return acc;
+  }, []);
+  console.log(promises);
+  return promises;
+}
+
+// Чекаємо виконання всіх промісів з fav ing
+async function waitAllPromises(promisesIng) {
+  const pr = Promise.all(promisesIng).catch(error => console.log(error));
+  return pr;
+}
+
+//Очищуємо вміст галереї
+//   function  clearGallery() {
+//     favIngWrapper.innerHTML = '';
+//     console.log("done");
 // }
 
-// // Чекаємо виконання всіх промісів з fav ing
-// async function waitAllPromises(promisesIng) {
-//   const pr = Promise.all(promisesIng).catch(error => console.log(error));
-//   return pr;
-// }
+function renderFavIng(data) {
 
 // //Очищуємо вміст галереї
 // //   function  clearGallery() {
