@@ -1,64 +1,105 @@
 import ApiService from '../api/apiService';
+import Render from '../render/render';
+import { handleOpenCloseModalFavorite } from '../modals/open-close-modal';
+
+const render = new Render();
 const apiService = new ApiService();
 
 const favWrapper = document.querySelector('.fav-cocktails__box');
+const favTitle = document.querySelector('.fav-cocktails__title');
+
 
 export default class FavGallery {
-    async render() {
-        const favIds = JSON.parse(localStorage.getItem('favIds') ?? '{}')
+  async render() {
+    const favIds = JSON.parse(localStorage.getItem('favIds') ?? '[]');
 
-        for (let id in favIds) {
-            const drink = await apiService.fetchDataById(id);
-        
-            const code = this.renderFavGallery(drink[0]);
-        
-            favWrapper.insertAdjacentHTML('beforeend', code);
-        }
-
-        this.addListeners();
+    if (favIds.length === 0) {
+      const notFoundBlock = render.createNotFoundMarkup();
+      favTitle.style.display = 'none';
+      favWrapper.insertAdjacentHTML('beforeend', notFoundBlock);
+      return
     }
 
-    async renderByLetter(letter) {
-        const favIds = JSON.parse(localStorage.getItem('favIds') ?? '{}')
 
-        for (let id in favIds) {
-            const drink = await apiService.fetchDataById(id);
+    for (let i = 0; i < favIds.length; i += 1) {
+      const drink = await apiService.fetchDataById(favIds[i]);
 
-            if(!drink[0].strDrink.toLowerCase().startsWith(letter.toLowerCase()))
-              continue;
-        
-            const code = this.renderFavGallery(drink[0]);
-        
-            favWrapper.insertAdjacentHTML('beforeend', code);
-        }
+      const code = this.renderFavGallery(drink[0]);
+      favWrapper.insertAdjacentHTML('beforeend', code);
+    }
+    favTitle.style.display = 'block';
+    this.addListeners();
+  }
 
-        this.addListeners();
+  async renderByLetter(letter) {
+    const favIds = JSON.parse(localStorage.getItem('favIds') ?? '{}')
+
+    for (let id in favIds) {
+      const drink = await apiService.fetchDataById(id);
+
+      if (!drink[0].strDrink.toLowerCase().startsWith(letter.toLowerCase()))
+        continue;
+
+      const code = this.renderFavGallery(drink[0]);
+
+      favWrapper.insertAdjacentHTML('beforeend', code);
     }
 
-    removeCocktails() {
-        favWrapper.innerHTML = '';
+    this.addListeners();
+  }
+
+  removeCocktails() {
+    favWrapper.innerHTML = '';
+  }
+
+  addListeners() {
+    favWrapper.addEventListener('click', (e) => {
+      const elem = e.target;
+      const removeBtn = elem.closest('.fav-buttons__btn--remove');
+      const learnMoreBtn = elem.closest('.fav-buttons__btn--learn-more');
+
+      if (removeBtn) {
+        this.removeFromFavorite(removeBtn);
+      }
+      if (learnMoreBtn) {
+        const elem = e.target
+        console.log('elem: ', elem);
+        const id = elem.closest('.fav-card').id;
+        console.log('id: ', id);
+        handleOpenCloseModalFavorite(id);
+      }
+
+    })
+
+  }
+
+  addToFavorite(addToBtn) {
+    const id = addToBtn.dataset.id;
+    const favIds = JSON.parse(localStorage.getItem('favIds') ?? '[]');
+
+    if (!favIds.includes(id)) {
+      favIds.push(id);
+      localStorage.setItem('favIds', JSON.stringify(favIds));
     }
+  }
 
-    addListeners() {
-        favWrapper
-        .querySelectorAll('.fav-buttons__btn--remove')
-        .forEach(e =>
-          e.addEventListener('click', this.onRemoveFromFavorite.bind(e))
-        );
+  removeFromFavorite(btnEl) {
+    const id = btnEl.dataset.id;
+
+    const favIds = JSON.parse(localStorage.getItem('favIds') ?? '[]')
+
+    const filtred = favIds.filter((i) => i !== id);
+    btnEl.closest('.fav-card').remove()
+    if (filtred.length === 0) {
+      localStorage.removeItem('favIds')
+      this.render()
+      return
     }
+    localStorage.setItem('favIds', JSON.stringify(filtred));
+  }
 
-    onRemoveFromFavorite() {
-        const id = this.attributes['data-id'].value
-        const favIds = JSON.parse(localStorage.getItem('favIds') ?? '{}')
-
-        delete favIds[id];
-    
-        localStorage.setItem('favIds', JSON.stringify(favIds));
-        this.parentElement.parentElement.remove()
-    }
-
-    renderFavGallery({ strDrinkThumb, strDrink, idDrink }) {
-        return `<div class="fav-card" id="${idDrink}">
+  renderFavGallery({ strDrinkThumb, strDrink, idDrink }) {
+    return `<div class="fav-card" id="${idDrink}">
         <img src="${strDrinkThumb}" alt="${strDrink}" class="fav-card__img" />
         <h3 class="fav-card__title">${strDrink}</h3>
         <div class="fav-buttons">
@@ -70,5 +111,5 @@ export default class FavGallery {
           </button>
         </div>
       </div>`;
-    }
+  }
 }

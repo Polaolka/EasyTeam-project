@@ -1,6 +1,8 @@
 import icons from "../../images/icons.svg"
 
 const galleryEl = document.querySelector('.gallery__wrapper');
+import icons from "../../images/icons.svg"
+
 
 export default class Render {
     constructor() { }
@@ -26,5 +28,14 @@ export default class Render {
             .join('');
 
         galleryEl.insertAdjacentHTML('beforeend', galleryItems);
+    }
+
+    createNotFoundMarkup() {
+        return `<div class="not-found">
+        <h2 class="not-found__title">Sorry, we didn't find any cocktail for you</h2>
+        <svg class="not-found__icon">
+        <use href="${icons}#icon-sorry"></use>
+        </svg>
+        </div>`;
     }
 }
