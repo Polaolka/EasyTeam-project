@@ -157,6 +157,10 @@ header {
   &:focus {
     outline: transparent;
   }
+
+  @include mq(desktop) {
+    display: none;
+  }
 }
 
 .gamburger span {
