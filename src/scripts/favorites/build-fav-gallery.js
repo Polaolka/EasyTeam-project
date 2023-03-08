@@ -63,9 +63,7 @@ export default class FavGallery {
       }
       if (learnMoreBtn) {
         const elem = e.target
-        console.log('elem: ', elem);
         const id = elem.closest('.fav-card').id;
-        console.log('id: ', id);
         handleOpenCloseModalFavorite(id);
       }
 
@@ -93,6 +91,18 @@ export default class FavGallery {
     if (filtred.length === 0) {
       localStorage.removeItem('favIds')
       this.render()
+      return
+    }
+    localStorage.setItem('favIds', JSON.stringify(filtred));
+  }
+  removeFromFavoriteFromGallery(btnEl) {
+    const id = btnEl.dataset.id;
+
+    const favIds = JSON.parse(localStorage.getItem('favIds') ?? '[]')
+
+    const filtred = favIds.filter((i) => i !== id);
+    if (filtred.length === 0) {
+      localStorage.removeItem('favIds')
       return
     }
     localStorage.setItem('favIds', JSON.stringify(filtred));
