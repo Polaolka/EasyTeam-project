@@ -2,6 +2,7 @@
   transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
   position: fixed;
+  z-index: 20;
   top: 0;
   left: 0;
   width: 100vw;
@@ -30,22 +31,24 @@
 
 .modal-coctails {
   position: absolute;
+  z-index: 30;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  min-width: 320px;
-  // min-height: 956px;
+  min-width: 270px;
+  max-height: 656px;
   background-color: #fcfcfc;
-
-  padding: 40px 20px;
+  overflow-y: scroll;
+  padding: 40px 20px 8px 20px;
   @include mq(tablet) {
     min-width: 822px;
+    overflow-y: hidden;
     // min-height: 598px;
     padding-right: 28px;
     padding-left: 0;
     padding-top: 0;
-    padding-bottom: 28px;
+    padding-bottom: 8px;
     transform: translate(-50%, -40%);
     display: flex;
     flex-wrap: wrap;
@@ -75,7 +78,7 @@
 
   @include fonts($fw: 900, $fs: 32px, $lh: 1.18, $color: var(--black-text-cl));
 
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   @include mq(tablet) {
     margin-left: 320px;
@@ -90,7 +93,7 @@
 }
 .instraction {
   @include fonts($fw: 400, $fs: 16px, $lh: 1.75, $color: var(--modal-text-cl));
-  margin-bottom: 32px;
+  margin-bottom: 15px;
   @include mq(tablet) {
     margin-left: 28px;
     margin-right: 179px;
@@ -134,23 +137,26 @@
 
 .ingridients-list {
   list-style: none;
-  padding: 0;
+
   @include mq(tablet) {
+    display: block;
+    min-height: 150px;
     order: 2;
+    margin-left: 320px;
   }
 }
 
 .ingridients-link {
   @include fonts($fw: 400, $fs: 16px, $lh: 1.6, $color: #000917);
   text-decoration: none;
-  @include mq(tablet) {
-    margin-left: 320px;
-  }
+  // @include mq(tablet) {
+
+  // }
 }
 .ingridients-link:hover,
 .ingridients-link:focus {
   cursor: pointer;
-  color: #2c66c4;
+  color: var(--main-text-cl);
 }
 
 .button-add {
@@ -162,7 +168,6 @@
   @include fonts($fw: 400, $fs: 20px, $lh: 1.2, $color: var(--white-cl));
   letter-spacing: 0.02em;
   border: none;
-
   &:hover,
   &:focus {
     cursor: pointer;
