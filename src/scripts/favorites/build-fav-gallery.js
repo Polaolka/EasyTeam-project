@@ -95,6 +95,18 @@ export default class FavGallery {
     }
     localStorage.setItem('favIds', JSON.stringify(filtred));
   }
+  removeFromFavoriteFromGallery(btnEl) {
+    const id = btnEl.dataset.id;
+
+    const favIds = JSON.parse(localStorage.getItem('favIds') ?? '[]')
+
+    const filtred = favIds.filter((i) => i !== id);
+    if (filtred.length === 0) {
+      localStorage.removeItem('favIds')
+      return
+    }
+    localStorage.setItem('favIds', JSON.stringify(filtred));
+  }
 
   renderFavGallery({ strDrinkThumb, strDrink, idDrink }) {
     return `<div class="fav-card" id="${idDrink}">
