@@ -83,12 +83,12 @@ async function getFavIngData() {
   renderFavIng(flatData);
 }
 
+
 function removeFromFavIngs(e) {
   const favIngs = JSON.parse(localStorage.getItem(LS_KEY_FAV_ING));
   let favIngrID = e.target.closest('.favorite').id;
-  const idx = favIngs.findIndex(ing => ing === favIngrID);
-  favIngs.splice(idx, 1);
-  localStorage.setItem(LS_KEY_FAV_ING, JSON.stringify(favIngs));
+  const newFawarite = favIngs.filter((el) => el !== favIngrID);
+  localStorage.setItem(LS_KEY_FAV_ING, JSON.stringify(newFawarite));
   getFavIngData();
   return;
 }
