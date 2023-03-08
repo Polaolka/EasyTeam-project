@@ -10,7 +10,6 @@ const apiId = new ApiService();
 export async function handleOpenCloseModal(e) {
   const idCard = e.target.closest('.card').id;
   const data = await apiId.fetchDataById(idCard);
-  console.log(data);
 
   renderModalCoctails(data[0]);
 
