@@ -1,7 +1,7 @@
 import ApiService from '../api/apiService';
 import Render from '../render/render';
 import { handleOpenCloseModal } from '../modals/open-close-modal';
-import { addToFavHandler } from '../common/add-to-favorites';
+import FavGallery from '../favorites/build-fav-gallery';
 
 const galleryEl = document.querySelector('.gallery__wrapper');
 const nextButton = document.querySelector('.pagination__btn-next');
@@ -11,6 +11,7 @@ const paginationEL = document.querySelector('.pagination');
 
 const apiService = new ApiService();
 const render = new Render();
+const favGallery = new FavGallery()
 
 export default class Gallery {
   constructor() {
@@ -60,10 +61,10 @@ export default class Gallery {
     const data = await this.allPromises(this.promises);
     const flatData = data.flatMap(i => i);
     render.renderGallery(flatData);
-    galleryEl
-      .querySelectorAll('.buttons__btn--add-to')
-      .forEach(e =>
-        e.addEventListener('click', addToFavHandler.bind(e)));//потрібно виправити
+    // galleryEl
+    //   .querySelectorAll('.buttons__btn--add-to')
+    //   .forEach(e =>
+    //     e.addEventListener('click', favGallery.addToFavorite));//потрібно виправити
   }
 
   // Будуємо розмітку в залежності від кількості елементів на стр.
@@ -93,8 +94,8 @@ export default class Gallery {
     paginationEL.addEventListener('click', e => {
       const elem = e.target;
 
-      const isPrevBtn = elem.closest('.pagination__btn-prev');
-      const isNextBtn = elem.closest('.pagination__btn-next');
+      const prevBtn = elem.closest('.pagination__btn-prev');
+      const nextBtn = elem.closest('.pagination__btn-next');
       const numBtn = elem.closest('.num-btn');
 
       if (Number(numBtn?.textContent) === this.currentPage) {
@@ -103,14 +104,14 @@ export default class Gallery {
         numBtn?.textContent && this.setCurrentPage(Number(numBtn.textContent));
       }
 
-      if (isPrevBtn) {
+      if (prevBtn) {
         if (this.currentPage === 1) {
           return;
         }
         this.setCurrentPage((this.currentPage -= 1));
       }
 
-      if (isNextBtn) {
+      if (nextBtn) {
         if (this.pageCount === this.currentPage) {
           return;
         }
@@ -143,11 +144,10 @@ export default class Gallery {
       this.currentData = data;
       this.addPaginationHandler();
     }
-    if (data.length <= this.paginationLimit) {
+    if (this.currentData.length <= this.paginationLimit) {
       this.clearGallery();
       render.renderGallery(data);
       paginationEL.classList.add('is-hidden');
-
       return
     }
     this.currentPage = pageNum;
@@ -174,11 +174,13 @@ gallery.getRandomData();
 galleryEl.addEventListener('click', e => {
   const elem = e.target;
 
+  const addToBtn = elem.closest('.buttons__btn--add-to');
+
   if (elem.classList.contains('buttons__btn--learn-more')) {
     handleOpenCloseModal(e);
   }
-  if (elem.classList.contains('buttons__btn--add-to')) {
-    console.log('click on "Learn more"')
-    // addToFavHandler(e);
+  if (addToBtn) {
+
+    favGallery.addToFavorite(addToBtn);
   }
 });
