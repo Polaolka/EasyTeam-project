@@ -19,6 +19,7 @@ export async function handleOpenModalIngridients(e) {
 
   const data = await apiIng.fetchDataByIngr(query);
   if (data[0].strDescription && data[0].strAlcohol) {
+    modalIng.classList.remove('component-not-wrapper');
     renderModalIngr(data[0]);
   } else {
     modalIng.classList.add('component-not-wrapper');
