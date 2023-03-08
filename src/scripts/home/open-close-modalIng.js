@@ -35,3 +35,31 @@ export async function handleOpenModalIngridients(e) {
 
   body.addEventListener('click', handleClickAddToFavIngr);
 }
+
+export async function handleOpenModalIngridientsFav(e) {
+  e.preventDefault();
+  // modalCoctailsEl.classList.add('is-hidden');
+
+  // console.log(e.target.closest('li'));
+  const query = e.target.closest('.favorite').id;
+  console.log(query);
+
+  const data = await apiIng.fetchDataByIdIngr(query);
+  console.log(data[0]);
+
+  modalIng.classList.add('component-not-wrapper');
+
+// ??????????????????????????????????????  //
+
+  renderModalWithoutIng(data[0]);
+
+  modalIng.classList.remove('is-hidden');
+
+  const closeModalIn = document.querySelector('.close-modal2');
+  closeModalIn.addEventListener('click', () => {
+    modalIng.classList.add('is-hidden');
+    modalCoctailsEl.classList.remove('is-hidden');
+  });
+
+  body.addEventListener('click', handleClickAddToFavIngr);
+}
