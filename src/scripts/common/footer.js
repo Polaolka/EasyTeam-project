@@ -1,33 +1,80 @@
-import { openModal } from './render_footer_modal';
-
-const refs = {
-  footerModal: document.querySelector('.footer-modal'),
-  openModalLink: document.querySelector('[data-footer-open]'),
-  modal: document.querySelector('[data-modal-footer]'),
-  backdrop: document.querySelector('.js-backdrop'),
-  addBodyClass: document.querySelector('body'),
+const teamRef = document.querySelector('.developers__link');
+const backdropTeamRef = document.querySelector('.backdrop-team');
+const closeBtnRef = document.querySelector('.modal-team__close-btn');
+const scrollGuardRef = document.querySelector('.scroll-guard');
+const options = {
+  rootMargin: '100px',
+  threshold: 1.0,
 };
+const isTeamListenerActive = teamRef.dataset.event;
 
-refs.openModalLink.addEventListener('click', openModal);
-refs.backdrop.addEventListener('click', onBackdropClick);
+const observer = new IntersectionObserver(
+  toggleListenerByIntersection,
+  options
+);
 
-export function onClickEscape(event) {
-  if (event.key === 'Escape') {
-    console.log(event.key);
-    refs.modal.classList.add('is-hidden');
-    refs.addBodyClass.classList.remove('modal-open');
-    document.removeEventListener('keydown', onClickEscape);
-  }
+function onGoitteamClick(e) {
+  e.preventDefault();
+
+  backdropTeamRef.classList.remove('backdrop-team--is-hidden');
+  document.body.classList.add('modal-open');
+
+  addAllEventListeners();
 }
 
-export function closeModal() {
-  refs.modal.classList.add('is-hidden');
-  refs.addBodyClass.classList.remove('modal-open');
-  document.removeEventListener('keydown', onClickEscape);
+function onEscClick(event) {
+  event.preventDefault();
+
+  if (event.code !== 'Escape') {
+    return;
+  }
+
+  closingModalStaff();
 }
 
 function onBackdropClick(event) {
-  if (event.currentTarget === event.target) {
-    closeModal();
+  if (event.target.closest('.modal-team')) {
+    return;
   }
+
+  closingModalStaff();
 }
+
+function onCloseBtnClick(event) {
+  event.preventDefault();
+
+  closingModalStaff();
+}
+
+function addAllEventListeners() {
+  document.addEventListener('keydown', onEscClick);
+  backdropTeamRef.addEventListener('click', onBackdropClick);
+  closeBtnRef.addEventListener('click', onCloseBtnClick);
+}
+
+function closingModalStaff() {
+  document.removeEventListener('keydown', onEscClick);
+  backdropTeamRef.removeEventListener('click', onBackdropClick);
+  closeBtnRef.removeEventListener('click', onCloseBtnClick);
+
+  backdropTeamRef.classList.add('backdrop-team--is-hidden');
+  document.body.classList.remove('modal-open');
+}
+
+function toggleListenerByIntersection(entries) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      teamRef.addEventListener('click', onGoitteamClick);
+      teamRef.dataset.event = 'true';
+    }
+
+    if (!entry.isIntersecting) {
+      teamRef.removeEventListener('click', onGoitteamClick);
+      teamRef.dataset.event = 'false';
+    }
+  });
+}
+
+setTimeout(() => {
+  observer.observe(scrollGuardRef);
+}, 1000);
