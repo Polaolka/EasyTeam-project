@@ -36,12 +36,13 @@ export async function handleOpenModalIngridients(e) {
 
   body.addEventListener('click', handleClickAddToFavIngr);
 }
+// ++++++++++++++++++++++++++++++++++++++++++++++++ //
 
 export async function handleOpenModalIngridientsFav(e) {
   e.preventDefault();
-  // modalCoctailsEl.classList.add('is-hidden');
+  backdrop.classList.remove('is-hidden');
+  modalIng.classList.remove('is-hidden');
 
-  // console.log(e.target.closest('li'));
   const query = e.target.closest('.favorite').id;
   console.log(query);
 
@@ -51,15 +52,12 @@ export async function handleOpenModalIngridientsFav(e) {
   modalIng.classList.add('component-not-wrapper');
 
 // ??????????????????????????????????????  //
-
-  renderModalWithoutIng(data[0]);
-
-  modalIng.classList.remove('is-hidden');
+  renderModalIngr(data[0]);
 
   const closeModalIn = document.querySelector('.close-modal2');
   closeModalIn.addEventListener('click', () => {
     modalIng.classList.add('is-hidden');
-    modalCoctailsEl.classList.remove('is-hidden');
+    backdrop.classList.add('is-hidden');
   });
 
   body.addEventListener('click', handleClickAddToFavIngr);
