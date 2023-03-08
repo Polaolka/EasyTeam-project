@@ -10,7 +10,5 @@ import './modals/open-close-modal';
 import './common/scroll-too-top';
 import './common/footer';
 
-
 import './common/add-to-favorites';
-// import './favorites/favorite-ing';
-// import './render/render-fav-ing';
+import './home/search-by-LS';
