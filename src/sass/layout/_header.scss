@@ -157,6 +157,10 @@ header {
   &:focus {
     outline: transparent;
   }
+
+  @include mq(desktop) {
+    display: none;
+  }
 }
 
 .gamburger span {
@@ -262,6 +266,11 @@ header {
 .li-item-drop {
   height: 50%;
   padding: 12px;
+  background-color: var(--white-cl);
+
+  @include mq(desktop) {
+    background-color: var(--dark-bg-cl);
+  }
 }
 
 .dark .li-item-drop.last {
