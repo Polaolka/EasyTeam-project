@@ -60,6 +60,10 @@ export default class Gallery {
     const data = await this.allPromises(this.promises);
     const flatData = data.flatMap(i => i);
     render.renderGallery(flatData);
+    galleryEl
+      .querySelectorAll('.buttons__btn--add-to')
+      .forEach(e =>
+        e.addEventListener('click', addToFavHandler.bind(e)));//потрібно виправити
   }
 
   // Будуємо розмітку в залежності від кількості елементів на стр.
@@ -168,6 +172,6 @@ galleryEl.addEventListener('click', e => {
   }
   if (elem.classList.contains('buttons__btn--add-to')) {
     console.log('click on "Learn more"')
-    addToFavHandler(e);
+    // addToFavHandler(e);
   }
 });
