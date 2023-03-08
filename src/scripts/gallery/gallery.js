@@ -175,12 +175,23 @@ galleryEl.addEventListener('click', e => {
   const elem = e.target;
 
   const addToBtn = elem.closest('.buttons__btn--add-to');
-
+  const removeBtn = elem.closest('.fav-buttons__btn--remove')
   if (elem.classList.contains('buttons__btn--learn-more')) {
     handleOpenCloseModal(e);
   }
   if (addToBtn) {
+    console.log('addToBtn: ', addToBtn);
+    addToBtn.classList.add('fav-buttons__btn--remove');
+    addToBtn.classList.remove('.buttons__btn--add-to');
 
+    addToBtn.textContent = 'Remove';
     favGallery.addToFavorite(addToBtn);
+  }
+  if (removeBtn) {
+    addToBtn.classList.add('fav-buttons__btn--remove');
+    removeBtn.classList.remove('fav-buttons__btn--remove')
+    addToBtn.textContent = 'Add to';
+
+    favGallery.removeFromFavoriteFromGallery(removeBtn);
   }
 });
