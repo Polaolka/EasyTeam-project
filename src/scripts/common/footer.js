@@ -1,4 +1,4 @@
-const teamRef = document.querySelector('.footer__link');
+const teamRef = document.querySelector('.developers__link');
 const backdropTeamRef = document.querySelector('.backdrop-team');
 const closeBtnRef = document.querySelector('.modal-team__close-btn');
 const scrollGuardRef = document.querySelector('.scroll-guard');
