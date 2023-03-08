@@ -1,5 +1,5 @@
 import './favorites/favorite-coctails';
-import './favorites/cocktails-by-letter'
+// import './favorites/cocktails-by-letter'
 import './favorites/favorite-ing';
 import './common/dropdown-menu';
 import './common/mobile-menu';
@@ -12,3 +12,4 @@ import './common/slider_glide';
 import './common/dropdown-menu-mob';
 import './common/theme-toggler-mobile';
 import './favorites/favorite-ing'
+import './render/render-fav-ing'

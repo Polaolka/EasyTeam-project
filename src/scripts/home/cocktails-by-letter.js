@@ -7,138 +7,75 @@ const el = {
   selectLetterMb: document.querySelector('.select-letter-mb'),
   selectidLetterMbBox: document.querySelector('.selectid-letter-mb-box'),
   selectidLetterMb: document.querySelector('.selectid-letter-mb'),
+  galleryTitle: document.querySelector('.gallery__title'),
 };
 
-el.letterBox.addEventListener('click', handleClickToLetter);
-
 const gallery = new Gallery();
+const notFaundCoctail = `<div class="not-found">
+<h2 class="not-foundtitle">Sorry, we didn't find any cocktail for you</h2>
+<svg class="not-found__icon">
+  <use href="./images/icons.svg#icon-sorry"></use>
+</svg>
+</div>`;
+
+el.letterBox.addEventListener('click', handleClickToLetter);
+el.openListLetter.addEventListener('click', OpenCloseListOfLetter);
+el.selectLetterMb.addEventListener('click', handleClickToLetterMobileRender);
+
 async function handleClickToLetter(e) {
-  const screenWidth = window.innerWidth;
-  // const getData = new ApiService();
-  // const render = new Render();
-  const gallery = new Gallery();
-
-  el.letterBox.addEventListener('click', handleClickToLetterRender);
-  el.openListLetter.addEventListener('click', OpenCloseListOfLetter);
-  el.selectLetterMb.addEventListener('click', handleClickToLetterMobileRender);
-
-  async function handleClickToLetterRender(e) {
-    if (e.target.classList.value !== 'search-box') {
-      return;
-    }
-
-    gallery.clearGallery();
-    const activeLetter = document.querySelector('.search-box.is-active');
-
-    if (activeLetter) {
-      activeLetter.classList.remove('is-active');
-    }
-
-    removeCocktails();
-
-    const selectedElement = e.target;
-    const selectedLetter = e.target.textContent;
-    gallery.numberOfItemsPerPage();
-    const data = await gallery.getDataByLetter(selectedLetter);
-    gallery.setCurrentPage(1, data);
+  if (e.target.classList.value !== 'search-box') {
+    return;
   }
 
-// import Gallery from '../gallery/gallery';
+  const activeLetter = document.querySelector('.search-box.is-active');
 
-// const el = {
-//   letterBox: document.querySelector('.search-container'),
-//   gallery: document.querySelector('.gallery__wrapper'),
-//   openListLetter: document.querySelector('.open-list-letter'),
-//   selectLetterMb: document.querySelector('.select-letter-mb'),
-//   selectidLetterMbBox: document.querySelector('.selectid-letter-mb-box'),
-//   selectidLetterMb: document.querySelector('.selectid-letter-mb'),
-// };
+  if (activeLetter) {
+    activeLetter.classList.remove('is-active');
+  }
 
-// el.letterBox.addEventListener('click', handleClickToLetter);
+  gallery.clearGallery();
 
-// const gallery = new Gallery();
-// async function handleClickToLetter(e) {
-//   const screenWidth = window.innerWidth;
-// const getData = new ApiService();
-// const render = new Render();
-// const gallery = new Gallery();
+  const selectedElement = e.target;
+  const selectedLetter = e.target.textContent;
+  gallery.numberOfItemsPerPage();
+  const data = await gallery.getDataByLetter(selectedLetter);
+  console.log(el.galleryTitle);
 
-// el.letterBox.addEventListener('click', handleClickToLetterRender);
-// el.openListLetter.addEventListener('click', OpenCloseListOfLetter);
-// el.selectLetterMb.addEventListener('click', handleClickToLetterMobileRender);
+  if (data === null) {
+    el.galleryTitle.classList.add('is-hidden');
+    el.gallery.innerHTML = notFaundCoctail;
+  } else {
+    gallery.setCurrentPage(1, data);
+    el.galleryTitle.classList.remove('is-hidden');
+  }
 
-// async function handleClickToLetterRender(e) {
-//   if (e.target.classList.value !== 'search-box') {
-//     return;
-//   }
+  selectedElement.classList.add('is-active');
+}
 
-//   gallery.clearGallery();
-//   const activeLetter = document.querySelector('.search-box.is-active');
+async function handleClickToLetterMobileRender(e) {
+  if (e.target.classList.value !== 'search-box-mb') {
+    return;
+  }
 
-//   if (activeLetter) {
-//     activeLetter.classList.remove('is-active');
-//   }
+  const selectedLetter = e.target.textContent;
+  gallery.numberOfItemsPerPage();
+  const data = await gallery.getDataByLetter(selectedLetter);
+  gallery.setCurrentPage(1, data);
 
-//   removeCocktails();
+  assingContentBySelected(selectedLetter);
+  el.selectLetterMb.classList.toggle('hiden');
+}
 
-//   const selectedElement = e.target;
-//   const selectedLetter = e.target.textContent;
-//   gallery.numberOfItemsPerPage();
-//   const data = await gallery.getDataByLetter(selectedLetter);
-//   gallery.setCurrentPage(1, data);
+function OpenCloseListOfLetter() {
+  if (el.selectidLetterMbBox.classList.contains('selectid')) {
+    el.selectidLetterMbBox.classList.remove('selectid');
+  }
 
-//   selectedElement.classList.add('is-active');
-//   console.log(selectedElement);
-// }
+  el.selectLetterMb.classList.toggle('hiden');
+  el.openListLetter.classList.toggle('open');
+}
 
-// gallery.numberOfItemsPerPage(screenWidth);
-// gallery.getDataByLetter(selectedLetter);
-// }
-
-// async function handleClickToLetterMobileRender(e) {
-//   if (e.target.classList.value !== 'search-box-mb') {
-//     return;
-//   }
-
-//   const selectedLetter = e.target.textContent;
-
-//   removeCocktails();
-//   OpenCloseListOfLetter();
-//   assingContentBySelected(selectedLetter);
-
-// gallery.numberOfItemsPerPage(screenWidth);
-// gallery.getDataByLetter(selectedLetter);
-// }
-
-// function removeCocktails() {
-//   el.gallery.innerHTML = '';
-// }
-
-// function OpenCloseListOfLetter() {
-//   if (el.selectidLetterMbBox.classList.contains('selectid')) {
-//     el.selectidLetterMbBox.classList.remove('selectid');
-//   }
-
-//   el.selectLetterMb.classList.toggle('hiden');
-//   el.openListLetter.classList.toggle('open');
-// }
-
-// function assingContentBySelected(content) {
-//   el.selectidLetterMb.textContent = content;
-//   el.selectidLetterMbBox.classList.add('selectid');
-// }
-
-// const selectidLetterMbBoxElement = document.querySelector('.selectid-letter-mb-box')
-// const selectidLetterMbElement =document.querySelector('.select-letter-mb');
-// const selectidLetterMbBoxElement = document.querySelectorAll('.search-box');
-
-// if (selectidLetterMbBoxElement.classList.contains('selectid')) {
-//   selectidLetterMbBoxElement.classList.remove('selectid');
-// selectidLetterMbElement.textContent = 'A';
-// }
-
-// selectidLetterMbBoxElement.forEach(el => {
-//   if (el.classList.contains('is-active')) {
-//     el.classList.remove('is-active');
-//   }
-// });
+function assingContentBySelected(content) {
+  el.selectidLetterMb.textContent = content;
+  el.selectidLetterMbBox.classList.add('selectid');
+}

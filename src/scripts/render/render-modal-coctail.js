@@ -40,7 +40,7 @@ function templateIngridients(data) {
           class="ingridients-link"
           target="_blank"
           rel="noreferrer noopener"
-          >✶ ${data[key2]} <span class="ingr-value">${data[key1]}</span></a
+          ><span id="coc-mark">✶</span> ${data[key2]} <span class="ingr-value">${data[key1]}</span></a
         >`;
   }
 
