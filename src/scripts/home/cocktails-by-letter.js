@@ -61,7 +61,14 @@ async function handleClickToLetterMobileRender(e) {
   const selectedLetter = e.target.textContent;
   gallery.numberOfItemsPerPage();
   const data = await gallery.getDataByLetter(selectedLetter);
-  gallery.setCurrentPage(1, data);
+
+  if (data === null) {
+    el.galleryTitle.classList.add('is-hidden');
+    el.gallery.innerHTML = notFaundCoctail;
+  } else {
+    gallery.setCurrentPage(1, data);
+    el.galleryTitle.classList.remove('is-hidden');
+  }
 
   assingContentBySelected(selectedLetter);
   el.selectLetterMb.classList.toggle('hiden');
