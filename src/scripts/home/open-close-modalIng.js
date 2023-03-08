@@ -36,7 +36,6 @@ export async function handleOpenModalIngridients(e) {
 
   body.addEventListener('click', handleClickAddToFavIngr);
 }
-// ++++++++++++++++++++++++++++++++++++++++++++++++ //
 
 export async function handleOpenModalIngridientsFav(e) {
   e.preventDefault();
@@ -49,9 +48,6 @@ export async function handleOpenModalIngridientsFav(e) {
   const data = await apiIng.fetchDataByIdIngr(query);
   console.log(data[0]);
 
-  // modalIng.classList.add('component-not-wrapper');
-
-// ??????????????????????????????????????  //
   renderModalIngr(data[0]);
 
   const closeModalIn = document.querySelector('.close-modal2');
