@@ -4,9 +4,9 @@ import { checkFavIng } from "../favorites/favorite-ing";
 const LS_KEY_FAV_ING = 'Fav-Ingredients';
 
 const favIngWrapper = document.querySelector('.fav-ing-wrapper');
-// const favIngOpener = document.querySelector('.js-fav-ing-opener');
+const favIngOpener = document.querySelector('.js-fav-ing-opener');
 const apiService = new ApiService();
-// favIngOpener.addEventListener('click', getFavIngData);
+favIngOpener.addEventListener('click', getFavIngData);
 // const promisesIng = makePromises();
 
     // Генеруємо проміси ing.
@@ -74,7 +74,8 @@ console.log(data);
 }
 
   // Отримуємо данні з fav ing
-  async function getFavIngData() {
+  async function getFavIngData(e) {
+    e.preventDefault();
     // console.log('+');
     const promises = makePromises();
     // console.log(`pr ${promises}`);
@@ -86,5 +87,4 @@ console.log(data);
     // clearGallery();
     renderFavIng(flatData);
 }
-getFavIngData();
 
