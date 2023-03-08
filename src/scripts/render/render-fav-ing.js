@@ -9,6 +9,8 @@ const apiService = new ApiService();
 // favIngOpener.addEventListener('click', getFavIngData);
 // const promisesIng = makePromises();
 
+getFavIngData();
+
     // Генеруємо проміси ing.
 function makePromises() {
     const favIngs = JSON.parse(localStorage.getItem(LS_KEY_FAV_ING));
@@ -28,10 +30,10 @@ async function waitAllPromises(promisesIng) {
 }
 
     //Очищуємо вміст галереї
-  function  clearGallery() {
-    favIngWrapper.innerHTML = '';
-    console.log("done");
-}
+//   function  clearGallery() {
+//     favIngWrapper.innerHTML = '';
+//     console.log("done");
+// }
 
 // fetchDataByIdIngr(query)
 function renderFavIng(data) {
@@ -75,6 +77,7 @@ console.log(data);
 
   // Отримуємо данні з fav ing
   async function getFavIngData() {
+    // e.preventDefault();
     // console.log('+');
     const promises = makePromises();
     // console.log(`pr ${promises}`);
@@ -86,5 +89,4 @@ console.log(data);
     // clearGallery();
     renderFavIng(flatData);
 }
-getFavIngData();
 
