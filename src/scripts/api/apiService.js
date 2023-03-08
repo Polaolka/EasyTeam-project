@@ -33,4 +33,10 @@ export default class ApiService {
     console.log(response);
     return response;
   }
+  async fetchDataByIdIngr(query) {
+    const { data } = await axios.get(`${BASE_URL}lookup.php?iid=${query}`);
+    const response = data.ingredients;
+    console.log(response);
+    return response;
+  }
 }

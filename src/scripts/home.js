@@ -12,4 +12,5 @@ import './common/footer';
 
 
 import './common/add-to-favorites';
-import './favorites/favorite-ing'
+import './favorites/favorite-ing';
+import './render/render-fav-ing';
