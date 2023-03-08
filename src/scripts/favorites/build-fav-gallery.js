@@ -63,9 +63,7 @@ export default class FavGallery {
       }
       if (learnMoreBtn) {
         const elem = e.target
-        console.log('elem: ', elem);
         const id = elem.closest('.fav-card').id;
-        console.log('id: ', id);
         handleOpenCloseModalFavorite(id);
       }
 
