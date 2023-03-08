@@ -1,7 +1,8 @@
 import ApiService from '../api/apiService';
 import icons from '../../images/icons.svg';
-import { checkFavIng } from "../favorites/favorite-ing";
+import { handleOpenModalIngridientsFav } from '../home/open-close-modalIng';
 const LS_KEY_FAV_ING = 'Fav-Ingredients';
+
 
 const favIngWrapper = document.querySelector('.fav-ing-wrapper');
 // const favIngOpener = document.querySelector('.js-fav-ing-opener');
@@ -11,36 +12,37 @@ const apiService = new ApiService();
 
 getFavIngData();
 
-    // Генеруємо проміси ing.
+// Генеруємо проміси ing.
 function makePromises() {
-    const favIngs = JSON.parse(localStorage.getItem(LS_KEY_FAV_ING));
-    console.log(favIngs);
-    // const promises = favIngs.reduce((acc, id)=> {return acc.push(apiService.fetchDataByIdIngr(id))}, [])
-    const promises = favIngs.reduce((acc, id)=> {acc.push(apiService.fetchDataByIdIngr(id)); return acc;}, [])
-    console.log(promises);
-    return promises;
+  const favIngs = JSON.parse(localStorage.getItem(LS_KEY_FAV_ING));
+  console.log(favIngs);
+  // const promises = favIngs.reduce((acc, id)=> {return acc.push(apiService.fetchDataByIdIngr(id))}, [])
+  const promises = favIngs.reduce((acc, id) => {
+    acc.push(apiService.fetchDataByIdIngr(id));
+    return acc;
+  }, []);
+  console.log(promises);
+  return promises;
 }
 
-    // Чекаємо виконання всіх промісів з fav ing
+// Чекаємо виконання всіх промісів з fav ing
 async function waitAllPromises(promisesIng) {
-     const pr = Promise.all(promisesIng).catch(error =>
-      console.log(error)
-    )
-    return pr;
+  const pr = Promise.all(promisesIng).catch(error => console.log(error));
+  return pr;
 }
 
-    //Очищуємо вміст галереї
+//Очищуємо вміст галереї
 //   function  clearGallery() {
 //     favIngWrapper.innerHTML = '';
 //     console.log("done");
 // }
 
-// fetchDataByIdIngr(query)
 function renderFavIng(data) {
-console.log(data);
+  console.log(data);
 
-        const galleryItems = data.map((elem) => {
-            return `
+  const galleryItems = data
+    .map(elem => {
+      return `
             <li class="favorite" id="${elem.idIngredient}">
                 <h3 class="favorite__title">${elem.strIngredient}</h3>
                 <p class="favorite__text">${elem.strType}</p>
@@ -54,39 +56,39 @@ console.log(data);
                 </div>
             </li>
             `;
-        })
-        .join('');
-        // console.log(galleryItems);
+    })
+    .join('');
+  // favIngWrapper.insertAdjacentHTML('beforeend', galleryItems);
+  favIngWrapper.innerHTML = galleryItems;
 
-        // favIngWrapper.insertAdjacentHTML('beforeend', galleryItems);
-        favIngWrapper.innerHTML = galleryItems;
+  favIngWrapper.addEventListener('click', e => {
+    const elem = e.target;
 
-        favIngWrapper.addEventListener('click', (e) => {
-            const elem = e.target;
-          
-            if (elem.classList.contains('js-learn-more-ing')) {
-            //   handleOpenCloseModal(e);
-              console.log('click on "Learn more ing"')
-            }
-            if (elem.classList.contains('js-remove-ing-card')) {
-              console.log('click on "Remove from button"')
-              // handleClickAddToFavIngr(e);
-            }
-          })
+    if (elem.classList.contains('js-learn-more-ing')) {
+      handleOpenModalIngridientsFav(e);
+      console.log('click on "Learn more ing"');
+    }
+    if (elem.classList.contains('js-remove-ing-card')) {
+      console.log('click on "Remove from button"');
+      removeFromFavIngs(e);
+    }
+  });
 }
 
-  // Отримуємо данні з fav ing
-  async function getFavIngData() {
-    // e.preventDefault();
-    // console.log('+');
-    const promises = makePromises();
-    // console.log(`pr ${promises}`);
-    const data = await waitAllPromises(promises);
-    // console.log(data);
-
-    const flatData = data.flatMap(i => i);
-    // console.log(flatData);
-    // clearGallery();
-    renderFavIng(flatData);
+// Отримуємо данні з fav ing
+async function getFavIngData() {
+  const promises = makePromises();
+  const data = await waitAllPromises(promises);
+  const flatData = data.flatMap(i => i);
+  renderFavIng(flatData);
 }
 
+function removeFromFavIngs(e) {
+  const favIngs = JSON.parse(localStorage.getItem(LS_KEY_FAV_ING));
+  let favIngrID = e.target.closest('.favorite').id;
+  const idx = favIngs.findIndex(ing => ing === favIngrID);
+  favIngs.splice(idx, 1);
+  localStorage.setItem(LS_KEY_FAV_ING, JSON.stringify(favIngs));
+  getFavIngData();
+  return;
+}
