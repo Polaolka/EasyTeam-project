@@ -147,9 +147,10 @@
 .ingridients-link {
   @include fonts($fw: 400, $fs: 16px, $lh: 1.6, $color: #000917);
   text-decoration: none;
-  // @include mq(tablet) {
-
-  // }
+  @include mq(tablet) {
+    order: 4;
+    margin-left: auto;
+  }
 }
 .ingridients-link:hover,
 .ingridients-link:focus {
@@ -171,7 +172,6 @@
     cursor: pointer;
   }
   @include mq(tablet) {
-    margin-left: auto;
     order: 4;
   }
 }
